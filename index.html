@@ -564,6 +564,9 @@
       cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       transition: background 0.18s, color 0.18s;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
     }
     .nav-btn:hover { background: #4E6132; color: white; }
     .slide-counter {
@@ -596,6 +599,8 @@
       opacity: 0.35;
       cursor: pointer;
       transition: opacity 0.2s, transform 0.2s;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
     .sdot.on { opacity: 1; background: #4E6132; transform: scale(1.35); }
 
@@ -606,14 +611,33 @@
         border-radius: 20px;
       }
       .progress-bar { width: calc(100vw - 34px); top: 10px; }
-      .slide { padding: 44px 34px 94px; }
-      .two-col { grid-template-columns: 1fr; gap: 24px; }
-      .three-col { grid-template-columns: 1fr; }
+      .slide { padding: 32px 20px 86px; }
+      .eyebrow { font-size: 9px; letter-spacing: 2.2px; margin-bottom: 10px; }
+      .rule { width: 44px; margin-bottom: 16px; }
+      h1 { font-size: clamp(32px, 8.6vw, 46px); }
+      h2 { font-size: clamp(24px, 7.4vw, 36px); margin-bottom: 14px; }
+      .lead { font-size: 14px; line-height: 1.5; margin-bottom: 18px; }
+      .pts { gap: 10px; }
+      .pts li { font-size: 13px; line-height: 1.5; }
+      .two-col { grid-template-columns: 1fr; gap: 20px; }
+      .three-col { grid-template-columns: 1fr; gap: 12px; }
       .toc-grid { grid-template-columns: 1fr; }
+      .card { padding: 18px 16px; border-radius: 20px; }
+      .card p { font-size: 12px; line-height: 1.5; }
+      img.icon48 { width: 52px; height: 52px; }
       #benefits .a4 { grid-template-columns: 1fr !important; gap: 6px !important; }
       #benefits .a4 > div { padding: 6px 8px !important; }
       .cover-layout { grid-template-columns: 1fr; gap: 18px; }
       .cover-media { min-height: 220px; }
+      #s2 .three-col,
+      #s8 .three-col,
+      #s10 .three-col,
+      #s14 .three-col { gap: 10px; margin-top: 16px !important; }
+      #s2 .card,
+      #s8 .card,
+      #s10 .card,
+      #s14 .card { padding: 16px 14px; }
+      #s14 .a6 { margin-top: 18px !important; font-size: 13px !important; line-height: 1.45; }
       #s0.hero-photo { background-position: center 92%; }
       #s0.hero-photo .inner { margin-top: 0; }
       #s0.hero-photo .col-l {
@@ -649,8 +673,9 @@
       }
       .doodle { max-width: 320px; }
       .slide::after { width: 260px; height: 260px; top: -70px; right: -70px; }
-      .dots { right: 12px; }
-      .nav { bottom: 8px; }
+      .dots { display: none; }
+      .nav { bottom: 8px; padding: 6px 10px; gap: 12px; }
+      .nav-btn { width: 44px; height: 44px; }
     }
   </style>
 </head>
@@ -941,7 +966,7 @@
   <!-- ══════════════════════════════════════════
        SLIDE 4b · LOCATION MAP
   ══════════════════════════════════════════ -->
-  <div class="slide" id="smap" style="padding:0; align-items:stretch; justify-content:stretch; --map-marker-left:15%; --map-marker-top:60%; --site-marker-left:31%; --site-marker-top:48%;">
+  <div class="slide" id="smap" style="padding:0; align-items:stretch; justify-content:stretch; --map-marker-left:15%; --map-marker-top:60%; --site-marker-left:31%; --site-marker-top:45%;">
     <div style="position:absolute; inset:0; background:url('Assets/map.png') center/cover no-repeat; z-index:0;"></div>
     <!-- Cruz Bay marker -->
     <div style="position:absolute; z-index:2; left:var(--map-marker-left); top:var(--map-marker-top); transform:translate(-50%,-100%);">
@@ -1098,35 +1123,6 @@
   </div>
 
   <!-- ══════════════════════════════════════════
-       SLIDE 8 · BROADER LOCAL ECONOMIC PARTICIPATION
-  ══════════════════════════════════════════ -->
-  <div class="slide bg-wood" id="s7">
-    <div class="inner">
-      <div class="two-col">
-
-        <div class="col-l">
-          <div class="eyebrow a1">Economic Impact</div>
-          <div class="rule a2"></div>
-          <h2 class="a3">04 · Broader Local<br><span class="em">Economic Participation</span></h2>
-          <p class="lead a4">Development that benefits the broader island community — not just investors. Local jobs, local operators, local ownership, local spending that stays on St. John.</p>
-          <ul class="pts a5">
-            <li><span class="dot"></span>Construction jobs for local tradespeople and contractors</li>
-            <li><span class="dot"></span>Commercial leases structured to favor local business owners</li>
-            <li><span class="dot"></span>Resident ownership builds community equity over time</li>
-            <li><span class="dot"></span>Everyday spending recirculates within the island economy</li>
-            <li><span class="dot"></span>Reduces economic leakage to off-island service providers</li>
-          </ul>
-        </div>
-
-        <div class="col-r" style="display:flex; justify-content:center; align-items:center;">
-          <img class="doodle" src="Assets/illustrations/14.png" alt="Economic participation illustration">
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════
        SLIDE 9 · SUPPORTING YEAR-ROUND LOCAL LIFE
   ══════════════════════════════════════════ -->
   <div class="slide bg-ocean" id="s8">
@@ -1153,6 +1149,35 @@
           <img class="icon48" src="Assets/illustrations/15C.png" alt="Stay on-island icon">
           <h3 style="margin-top:14px;">Stay On-Island</h3>
           <p>Fewer ferry trips to St. Thomas for groceries, hardware, or basic services — everything residents need within reach.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 8 · BROADER LOCAL ECONOMIC PARTICIPATION
+  ══════════════════════════════════════════ -->
+  <div class="slide bg-wood" id="s7">
+    <div class="inner">
+      <div class="two-col">
+
+        <div class="col-l">
+          <div class="eyebrow a1">Economic Impact</div>
+          <div class="rule a2"></div>
+          <h2 class="a3">04 · Broader Local<br><span class="em">Economic Participation</span></h2>
+          <p class="lead a4">Development that benefits the broader island community — not just investors. Local jobs, local operators, local ownership, local spending that stays on St. John.</p>
+          <ul class="pts a5">
+            <li><span class="dot"></span>Construction jobs for local tradespeople and contractors</li>
+            <li><span class="dot"></span>Commercial leases structured to favor local business owners</li>
+            <li><span class="dot"></span>Resident ownership builds community equity over time</li>
+            <li><span class="dot"></span>Everyday spending recirculates within the island economy</li>
+            <li><span class="dot"></span>Reduces economic leakage to off-island service providers</li>
+          </ul>
+        </div>
+
+        <div class="col-r" style="display:flex; justify-content:center; align-items:center;">
+          <img class="doodle" src="Assets/illustrations/14.png" alt="Economic participation illustration">
         </div>
 
       </div>
@@ -1433,9 +1458,9 @@
 
 <!-- ─── NAVIGATION ─── -->
 <div class="nav">
-  <button class="nav-btn" id="btnPrev" onclick="go(-1)">&#8592;</button>
+  <button class="nav-btn" id="btnPrev" type="button" onclick="go(-1)" ontouchstart="event.preventDefault();go(-1)" onpointerdown="event.preventDefault();go(-1)">&#8592;</button>
   <span class="slide-counter" id="ctr">1 / 15</span>
-  <button class="nav-btn" id="btnNext" onclick="go(1)">&#8594;</button>
+  <button class="nav-btn" id="btnNext" type="button" onclick="go(1)" ontouchstart="event.preventDefault();go(1)" onpointerdown="event.preventDefault();go(1)">&#8594;</button>
 </div>
 
 <!-- ─── SLIDE DOTS ─── -->
@@ -1447,13 +1472,39 @@
   const prog = document.getElementById('prog');
   const ctr  = document.getElementById('ctr');
   const dotsEl = document.getElementById('dots');
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
   let cur = 0;
+  let lastNavTs = 0;
+
+  function bindActivate(node, handler) {
+    let lastTouchTs = 0;
+    const run = e => {
+      if (e && typeof e.preventDefault === 'function') e.preventDefault();
+      handler(e);
+    };
+    node.addEventListener('pointerup', e => {
+      lastTouchTs = Date.now();
+      run(e);
+    }, { passive: false });
+    node.addEventListener('touchend', e => {
+      lastTouchTs = Date.now();
+      run(e);
+    }, { passive: false });
+    node.addEventListener('click', e => {
+      if (Date.now() - lastTouchTs < 700) {
+        e.preventDefault();
+        return;
+      }
+      handler(e);
+    });
+  }
 
   // Build dots
   slides.forEach((_, i) => {
     const d = document.createElement('div');
     d.className = 'sdot' + (i === 0 ? ' on' : '');
-    d.onclick = () => show(i);
+    bindActivate(d, () => show(i));
     dotsEl.appendChild(d);
   });
   const dotNodes = Array.from(dotsEl.querySelectorAll('.sdot'));
@@ -1468,7 +1519,15 @@
     ctr.textContent  = (cur + 1) + ' / ' + N;
   }
 
-  function go(dir) { show(cur + dir); }
+  function go(dir) {
+    const now = Date.now();
+    if (now - lastNavTs < 250) return;
+    lastNavTs = now;
+    show(cur + dir);
+  }
+
+  bindActivate(btnPrev, () => go(-1));
+  bindActivate(btnNext, () => go(1));
 
   // Keyboard
   document.addEventListener('keydown', e => {
