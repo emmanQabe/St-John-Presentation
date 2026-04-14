@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community-Serving Mixed-Use Development — St. John, USVI</title>
+  <title>Community-Serving Mixed-Use Development - St. John, USVI</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,7 +46,7 @@
       justify-content: center;
     }
 
-    /* ─── PROGRESS ─── */
+    /*  PROGRESS  */
     .progress-bar {
       position: fixed;
       top: 22px;
@@ -70,7 +70,7 @@
       transition: transform 0.5s ease;
     }
 
-    /* ─── DECK ─── */
+    /*  DECK  */
     .deck {
       position: relative;
       width: min(1160px, calc(100vw - 58px));
@@ -84,7 +84,7 @@
         0 8px 22px rgba(24, 36, 21, 0.16);
     }
 
-    /* ─── SLIDES ─── */
+    /*  SLIDES  */
     .slide {
       position: absolute;
       inset: 0;
@@ -135,7 +135,7 @@
       height: 100%;
       border-radius: 0;
       background: url("Assets/title page bg.png") center/cover no-repeat;
-      transform: translateY(30%);
+      transform: translateY(20%);
       z-index: 0;
       opacity: 1;
     }
@@ -216,7 +216,7 @@
         linear-gradient(165deg, rgba(255,255,255,0.08), rgba(255,255,255,0.22)),
         var(--cover-img);
       background-size: cover;
-      background-position: center;
+      background-position: var(--cover-pos, center);
     }
     .bg-ocean::after,
     .bg-sand::after,
@@ -265,7 +265,7 @@
       to   { transform: translateY(0);    opacity: 1; }
     }
 
-    /* ─── BACKGROUNDS ─── */
+    /*  BACKGROUNDS  */
     .bg-ocean  {
       background:
         linear-gradient(145deg, #F8F6F0 0%, #EFECE3 62%, #E7E3D6 100%),
@@ -302,7 +302,7 @@
       background-position: center, center;
     }
 
-    /* ─── INNER CONTENT ─── */
+    /*  INNER CONTENT  */
     .inner {
       max-width: 1160px;
       width: 100%;
@@ -310,7 +310,7 @@
       z-index: 2;
     }
 
-    /* ─── TYPOGRAPHY ─── */
+    /*  TYPOGRAPHY  */
     .eyebrow {
       font-size: 10px;
       font-weight: 600;
@@ -368,7 +368,7 @@
       margin-bottom: 28px;
     }
 
-    /* ─── LAYOUT ─── */
+    /*  LAYOUT  */
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -417,7 +417,7 @@
       margin-bottom: 12px;
     }
 
-    /* ─── CARD ─── */
+    /*  CARD  */
     .card {
       background:
         linear-gradient(160deg, rgba(255,255,255,0.86) 0%, rgba(249,247,241,0.94) 100%),
@@ -430,7 +430,7 @@
     }
     .card p { font-size: clamp(12px, 1.1vw, 15px); line-height: 1.65; }
 
-    /* ─── POINT LIST ─── */
+    /*  POINT LIST  */
     .pts { list-style: none; display: flex; flex-direction: column; gap: 14px; }
     .pts li {
       display: flex; align-items: flex-start; gap: 12px;
@@ -442,7 +442,7 @@
       background: #5E7242; flex-shrink: 0; margin-top: 7px;
     }
 
-    /* ─── TAG ─── */
+    /*  TAG  */
     .tag {
       display: inline-block;
       padding: 4px 14px;
@@ -456,7 +456,7 @@
       border: 1px solid rgba(39, 50, 24, 0.18);
     }
 
-    /* ─── DOODLE ─── */
+    /*  DOODLE  */
     .doodle {
       display: block;
       width: 100%;
@@ -481,6 +481,10 @@
       background: transparent;
       border: 0;
       box-shadow: none;
+    }
+    #smap {
+      --map-bg-x: 50%;
+      --map-bg-y: 50%;
     }
     #benefits .cover-layout {
       grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
@@ -538,10 +542,10 @@
       filter: none;
     }
 
-    /* ─── NAV ─── */
+    /*  NAV  */
     .nav {
       position: fixed;
-      bottom: 18px;
+      bottom: max(18px, env(safe-area-inset-bottom));
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -611,8 +615,29 @@
         border-radius: 20px;
       }
       .progress-bar { width: calc(100vw - 34px); top: 10px; }
-      .slide { padding: 32px 20px 86px; }
+      .slide {
+        padding: 32px 20px calc(102px + env(safe-area-inset-bottom));
+        align-items: flex-start;
+      }
       .eyebrow { font-size: 9px; letter-spacing: 2.2px; margin-bottom: 10px; }
+      #s4 .inner {
+        margin-top: 6px;
+      }
+      #s4 .eyebrow {
+        line-height: 1.25;
+      }
+      #s4 .two-col {
+        gap: 12px !important;
+        margin-top: 14px !important;
+      }
+      #s4 .col-r {
+        justify-content: flex-start !important;
+        padding-bottom: 86px;
+      }
+      #s4 .doodle.plain-illustration {
+        width: min(72vw, 300px);
+        max-width: min(72vw, 300px);
+      }
       .rule { width: 44px; margin-bottom: 16px; }
       h1 { font-size: clamp(32px, 8.6vw, 46px); }
       h2 { font-size: clamp(24px, 7.4vw, 36px); margin-bottom: 14px; }
@@ -625,19 +650,142 @@
       .card { padding: 18px 16px; border-radius: 20px; }
       .card p { font-size: 12px; line-height: 1.5; }
       img.icon48 { width: 52px; height: 52px; }
-      #benefits .a4 { grid-template-columns: 1fr !important; gap: 6px !important; }
-      #benefits .a4 > div { padding: 6px 8px !important; }
+      #toc .cover-layout {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
+      #toc .cover-media {
+        display: none !important;
+      }
+      #benefits .cover-layout {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+        align-items: stretch !important;
+      }
+      #benefits .cover-media {
+        display: block !important;
+        margin: 0 !important;
+        min-height: 220px !important;
+        border-radius: 18px !important;
+        background-position: var(--cover-pos-mobile, var(--cover-pos, center 86%)) !important;
+      }
+      #toc .toc-grid {
+        margin-top: 12px !important;
+        gap: 8px !important;
+      }
+      #toc .toc-item {
+        padding: 10px 12px !important;
+        border-radius: 14px !important;
+      }
+      #toc .toc-num {
+        min-width: 24px !important;
+        font-size: 20px !important;
+      }
+      #toc .toc-label {
+        font-size: 12px !important;
+        line-height: 1.25 !important;
+      }
+      #benefits .a4 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 4px !important; }
+      #benefits .a4 > div {
+        min-height: 0 !important;
+        padding: 4px 8px !important;
+      }
+      #benefits .a4 {
+        gap: 4px !important;
+      }
+      #benefits .a4 > div > div:first-child {
+        font-size: 16px !important;
+        line-height: 1 !important;
+      }
+      #benefits .a4 > div > div:last-child {
+        font-size: 10.5px !important;
+        line-height: 1.2 !important;
+        margin-top: 1px !important;
+      }
+      #benefits .lead {
+        font-size: 12.5px !important;
+        line-height: 1.4 !important;
+        margin-bottom: 8px !important;
+      }
       .cover-layout { grid-template-columns: 1fr; gap: 18px; }
       .cover-media { min-height: 220px; }
       #s2 .three-col,
       #s8 .three-col,
-      #s10 .three-col,
-      #s14 .three-col { gap: 10px; margin-top: 16px !important; }
+      #s10 .three-col { gap: 10px; margin-top: 16px !important; }
       #s2 .card,
       #s8 .card,
-      #s10 .card,
-      #s14 .card { padding: 16px 14px; }
+      #s10 .card {
+        display: grid;
+        grid-template-columns: 68px minmax(0, 1fr);
+        column-gap: 14px;
+        row-gap: 4px;
+        align-items: start;
+        padding: 16px 14px;
+      }
+      #s2 .card h3,
+      #s8 .card h3,
+      #s10 .card h3 {
+        grid-column: 2;
+        align-self: end;
+        margin-top: 0 !important;
+      }
+      #s2 .card p,
+      #s8 .card p,
+      #s10 .card p {
+        grid-column: 2;
+        margin-top: 2px;
+      }
+      #s2 .card img.icon48,
+      #s8 .card img.icon48,
+      #s10 .card img.icon48 {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        width: 68px;
+        height: 68px;
+        align-self: start;
+        justify-self: center;
+      }
+      #s14 .three-col { gap: 10px; margin-top: 14px !important; }
+      #s14 h2 {
+        white-space: nowrap;
+        font-size: clamp(20px, 6.6vw, 34px) !important;
+      }
+      #s14 .card {
+        display: grid;
+        grid-template-columns: 136px minmax(0, 1fr);
+        column-gap: 14px;
+        row-gap: 4px;
+        align-items: start;
+        padding: 12px 14px;
+      }
+      #s14 .card > div:first-child {
+        grid-column: 1;
+        margin: 0 !important;
+        line-height: 1 !important;
+      }
+      #s14 .card h3 {
+        grid-column: 1;
+        margin: 0 !important;
+        max-width: 112px;
+        line-height: 1.1 !important;
+      }
+      #s14 .card p {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        margin: 0 !important;
+      }
       #s14 .a6 { margin-top: 18px !important; font-size: 13px !important; line-height: 1.45; }
+      #s14 {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      #s14 .inner {
+        padding-bottom: calc(120px + env(safe-area-inset-bottom));
+      }
+      #smap {
+        --map-bg-x: 0%;
+        --map-bg-y: 50%;
+      }
       #s0.hero-photo { background-position: center 92%; }
       #s0.hero-photo .inner { margin-top: 0; }
       #s0.hero-photo .col-l {
@@ -674,7 +822,7 @@
       .doodle { max-width: 320px; }
       .slide::after { width: 260px; height: 260px; top: -70px; right: -70px; }
       .dots { display: none; }
-      .nav { bottom: 8px; padding: 6px 10px; gap: 12px; }
+      .nav { bottom: max(8px, env(safe-area-inset-bottom)); padding: 6px 10px; gap: 12px; }
       .nav-btn { width: 44px; height: 44px; }
     }
   </style>
@@ -685,15 +833,15 @@
 
 <div class="deck" id="deck">
 
-  <!-- ══════════════════════════════════════════
-       SLIDE 1 · COVER
-  ══════════════════════════════════════════ -->
+  <!-- 
+       SLIDE 1 - COVER
+   -->
   <div class="slide bg-ocean active hero-photo" id="s0">
     <div class="inner">
       <div class="two-col">
 
         <div class="col-l">
-          <div class="eyebrow a1">St. John, USVI · DPNR Approval Request</div>
+          <div class="eyebrow a1">St. John, USVI - DPNR Approval Request</div>
           <div class="rule a2"></div>
           <h1 class="a3">Community-Serving<br><span class="em">Mixed-Use<br>Development</span></h1>
 
@@ -729,7 +877,7 @@
             <!-- Island hillside -->
             <ellipse cx="128" cy="238" rx="148" ry="64" fill="#7AAF6E"/>
             <ellipse cx="82"  cy="248" rx="108" ry="52" fill="#5B8C5A"/>
-            <!-- Houses – low rise -->
+            <!-- Houses - low rise -->
             <rect x="68" y="200" width="44" height="33" rx="4" fill="#F7F0E0" stroke="#C9A96E" stroke-width="1.5"/>
             <polygon points="64,200 116,200 90,180" fill="#C4956A" stroke="#8B6B47" stroke-width="1.5"/>
             <rect x="76" y="212" width="12" height="21" rx="2" fill="#E8D5A3"/>
@@ -770,9 +918,9 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       SLIDE 2 · THE PLANNING CHALLENGE
-  ══════════════════════════════════════════ -->
+  <!-- 
+       SLIDE 2 - THE PLANNING CHALLENGE
+   -->
   <div class="slide bg-cream section-cover" id="toc">
     <div class="inner">
       <div class="cover-layout">
@@ -784,10 +932,10 @@
       <div class="toc-grid a5">
         <div class="toc-item"><span class="toc-num">1</span><span class="toc-label">Cover</span></div>
         <div class="toc-item"><span class="toc-num">2</span><span class="toc-label">Table of Contents</span></div>
-        <div class="toc-item"><span class="toc-num">3–4</span><span class="toc-label">Planning Challenge</span></div>
-        <div class="toc-item"><span class="toc-num">5–6</span><span class="toc-label">Why This Proposal Exists</span></div>
-        <div class="toc-item"><span class="toc-num">7–8</span><span class="toc-label">Project Overview</span></div>
-        <div class="toc-item"><span class="toc-num">9–19</span><span class="toc-label">Benefits</span></div>
+        <div class="toc-item"><span class="toc-num">3-4</span><span class="toc-label">Planning Challenge</span></div>
+        <div class="toc-item"><span class="toc-num">5-6</span><span class="toc-label">Why This Proposal Exists</span></div>
+        <div class="toc-item"><span class="toc-num">7-8</span><span class="toc-label">Project Overview</span></div>
+        <div class="toc-item"><span class="toc-num">9-19</span><span class="toc-label">Benefits</span></div>
         <div class="toc-item"><span class="toc-num">20</span><span class="toc-label">Request & Next Steps</span></div>
       </div>
         </div>
@@ -820,13 +968,13 @@
           <ul class="pts a5">
             <li><span class="dot"></span>Cruz Bay absorbs disproportionate development pressure</li>
             <li><span class="dot"></span>Locals face limited housing ownership and commercial opportunity</li>
-            <li><span class="dot"></span>Service gaps push residents off-island for basic everyday needs</li>
+            <li><span class="dot"></span>The same establishments that cater to tourists may not serve local needs</li>
             <li><span class="dot"></span>Exclusively residential zoning blocks thoughtful mixed-use solutions</li>
           </ul>
         </div>
 
         <div class="col-r" style="display:flex; justify-content:center;">
-          <img class="doodle" src="Assets/illustrations/4.png" alt="Planning challenge illustration">
+          <img class="doodle" src="Assets/Illustrations/4.png" alt="Planning challenge illustration">
         </div>
 
       </div>
@@ -845,33 +993,33 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       SLIDE 3 · WHY THIS PROPOSAL EXISTS
-  ══════════════════════════════════════════ -->
+  <!-- 
+       SLIDE 3 - WHY THIS PROPOSAL EXISTS
+   -->
   <div class="slide bg-forest" id="s2">
     <div class="inner">
       <div class="eyebrow a1">Our Motivation</div>
       <div class="rule a2"></div>
       <h2 class="a3">Why This Proposal Exists</h2>
-      <p class="lead a4">This isn't a luxury development. It's a direct response to what St. John's year-round community has long needed — rooted in place, respectful of culture, designed to serve people who already call this island home.</p>
+      <p class="lead a4">This isn't a luxury development. It's a direct response to what St. John's year-round community has long needed - rooted in place, respectful of culture, designed to serve people who already call this island home.</p>
       <div class="three-col" style="margin-top:28px;">
 
         <div class="card card-1">
-          <img class="icon48" src="Assets/illustrations/6A.png" alt="Attainable housing icon">
+          <img class="icon48" src="Assets/Illustrations/6A.png" alt="Attainable housing icon">
           <h3 style="margin-top:14px;">Attainable Housing</h3>
-          <p>Apartments and residential units accessible to local families and workers — not just seasonal visitors or outside investors.</p>
+          <p>Apartments and residential units accessible to local families and workers - not just seasonal visitors or outside investors.</p>
         </div>
 
         <div class="card card-2">
-          <img class="icon48" src="Assets/illustrations/6B.png" alt="Local commerce icon">
+          <img class="icon48" src="Assets/Illustrations/6B.png" alt="Local commerce icon">
           <h3 style="margin-top:14px;">Local Commerce</h3>
-          <p>A neighborhood strip mall serving everyday needs — groceries, pharmacy, services — for residents, not tourists.</p>
+          <p>A neighborhood strip mall serving everyday needs - groceries, pharmacy, services - for residents, not tourists.</p>
         </div>
 
         <div class="card card-3">
-          <img class="icon48" src="Assets/illustrations/6C.png" alt="Public green space icon">
+          <img class="icon48" src="Assets/Illustrations/6C.png" alt="Public green space icon">
           <h3 style="margin-top:14px;">Public Green Space</h3>
-          <p>A dedicated public park woven into the development — shade, gathering, and breathing room for the whole neighborhood.</p>
+          <p>A dedicated public park woven into the development - shade, gathering, and breathing room for the whole neighborhood.</p>
         </div>
 
       </div>
@@ -890,9 +1038,33 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       SLIDE 4 · PROJECT OVERVIEW
-  ══════════════════════════════════════════ -->
+  <!-- ------------------------------------------
+       SLIDE 4b - LOCATION MAP
+  ------------------------------------------ -->
+  <div class="slide" id="smap" style="padding:0; align-items:stretch; justify-content:stretch; --map-marker-left:16.5%; --map-marker-top:60%; --site-marker-left:32.5%; --site-marker-top:45%;">
+    <div id="smap-canvas" style="position:absolute; inset:0; background:url('Assets/map.png') var(--map-bg-x) var(--map-bg-y)/cover no-repeat; z-index:0;"></div>
+    <div id="marker-cruz" class="map-marker" data-x-var="--map-marker-left" data-y-var="--map-marker-top" style="position:absolute; z-index:2; transform:translate(-50%,-100%);">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:0;">
+        <div style="background:rgba(47,58,34,0.92); color:#F5F3ED; font-family:'Manrope',sans-serif; font-size:11px; font-weight:600; letter-spacing:1.6px; text-transform:uppercase; padding:6px 12px; border-radius:8px; white-space:nowrap; box-shadow:0 4px 14px rgba(0,0,0,0.28);">Cruz Bay</div>
+        <div style="width:2px; height:16px; background:rgba(47,58,34,0.85);"></div>
+        <div style="width:10px; height:10px; border-radius:50%; background:#4E6132; border:2px solid #F5F3ED; box-shadow:0 2px 8px rgba(0,0,0,0.35);"></div>
+      </div>
+    </div>
+    <div id="marker-site" class="map-marker" data-x-var="--site-marker-left" data-y-var="--site-marker-top" style="position:absolute; z-index:2; transform:translate(-50%,-100%);">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:0;">
+        <div style="background:rgba(47,58,34,0.92); color:#F5F3ED; font-family:'Manrope',sans-serif; font-size:11px; font-weight:600; letter-spacing:1.6px; text-transform:uppercase; padding:6px 12px; border-radius:8px; white-space:nowrap; box-shadow:0 4px 14px rgba(0,0,0,0.28);">Site</div>
+        <div style="width:2px; height:16px; background:rgba(47,58,34,0.85);"></div>
+        <div style="width:10px; height:10px; border-radius:50%; background:#4E6132; border:2px solid #F5F3ED; box-shadow:0 2px 8px rgba(0,0,0,0.35);"></div>
+      </div>
+    </div>
+    <div style="position:absolute; bottom:28px; left:38px; z-index:2;">
+      <div class="eyebrow" style="margin:0; color:#F5F3ED; text-shadow:0 1px 4px rgba(0,0,0,0.5);">St. John, USVI - Site Location</div>
+    </div>
+  </div>
+
+  <!-- ------------------------------------------
+       SLIDE 4 - PROJECT OVERVIEW
+  ------------------------------------------ -->
   <div class="slide bg-cream" id="s3">
     <div class="inner">
       <div class="two-col">
@@ -923,37 +1095,28 @@
         </div>
 
         <div class="col-r" style="display:flex; justify-content:center;">
-          <!-- Site plan doodle -->
           <svg class="doodle" viewBox="0 0 330 310" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="330" height="310" rx="22" fill="#FAFAF5"/>
-            <!-- Site boundary dashed -->
             <rect x="28" y="28" width="274" height="254" rx="12" stroke="#C9A96E" stroke-width="2" stroke-dasharray="7 4" fill="#F5EDE0"/>
-            <!-- North arrow -->
             <line x1="292" y1="52" x2="292" y2="38" stroke="#4A9BA5" stroke-width="2"/>
             <polygon points="288,44 296,44 292,36" fill="#4A9BA5"/>
             <text x="287" y="64" font-size="10" fill="#4A9BA5" font-family="Georgia">N</text>
-            <!-- apartment block -->
             <rect x="44" y="46" width="120" height="96" rx="7" fill="#7EC8C8" stroke="#4A9BA5" stroke-width="2"/>
             <text x="104" y="88" font-size="12" fill="#2B7A8C" font-family="Georgia" font-weight="bold" text-anchor="middle">apartmentS</text>
             <text x="104" y="104" font-size="10" fill="#4A9BA5" font-family="Georgia" text-anchor="middle">Residential</text>
-            <!-- Strip mall -->
             <rect x="178" y="46" width="110" height="54" rx="7" fill="#A8D89B" stroke="#5B8C5A" stroke-width="2"/>
             <text x="233" y="74" font-size="10" fill="#3D6B3D" font-family="Georgia" font-weight="bold" text-anchor="middle">STRIP MALL</text>
             <text x="233" y="88" font-size="9" fill="#5B8C5A" font-family="Georgia" text-anchor="middle">Local Commercial</text>
-            <!-- Park -->
             <rect x="178" y="116" width="110" height="80" rx="7" fill="#C5E8A0" stroke="#7AAF6E" stroke-width="2"/>
             <text x="233" y="162" font-size="12" fill="#3D6B3D" font-family="Georgia" font-weight="bold" text-anchor="middle">PARK</text>
             <circle cx="198" cy="142" r="10" fill="#5B8C5A" opacity="0.65"/>
-            <circle cx="268" cy="148" r="9"  fill="#7AAF6E" opacity="0.65"/>
-            <circle cx="220" cy="178" r="8"  fill="#5B8C5A" opacity="0.55"/>
-            <!-- Path / road -->
+            <circle cx="268" cy="148" r="9" fill="#7AAF6E" opacity="0.65"/>
+            <circle cx="220" cy="178" r="8" fill="#5B8C5A" opacity="0.55"/>
             <rect x="44" y="156" width="120" height="16" rx="5" fill="#E8D5A3" stroke="#C9A96E" stroke-width="1"/>
             <text x="104" y="168" font-size="9" fill="#8B6B47" font-family="Georgia" text-anchor="middle">INTERNAL PATH</text>
-            <!-- Mixed use buffer -->
             <rect x="44" y="184" width="120" height="74" rx="7" fill="#F5E6C8" stroke="#C9A96E" stroke-width="2"/>
             <text x="104" y="220" font-size="10" fill="#8B6B47" font-family="Georgia" font-weight="bold" text-anchor="middle">BUFFER ZONE</text>
             <text x="104" y="235" font-size="9" fill="#8B6B47" font-family="Georgia" text-anchor="middle">Landscaping &amp; setback</text>
-            <!-- Entry -->
             <rect x="148" y="268" width="44" height="14" rx="3" fill="#E8D5A3" stroke="#C9A96E" stroke-width="1"/>
             <text x="170" y="279" font-size="8" fill="#8B6B47" font-family="Georgia" text-anchor="middle">ENTRY ROAD</text>
           </svg>
@@ -963,60 +1126,10 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       SLIDE 4b · LOCATION MAP
-  ══════════════════════════════════════════ -->
-  <div class="slide" id="smap" style="padding:0; align-items:stretch; justify-content:stretch; --map-marker-left:15%; --map-marker-top:60%; --site-marker-left:31%; --site-marker-top:45%;">
-    <div style="position:absolute; inset:0; background:url('Assets/map.png') center/cover no-repeat; z-index:0;"></div>
-    <!-- Cruz Bay marker -->
-    <div style="position:absolute; z-index:2; left:var(--map-marker-left); top:var(--map-marker-top); transform:translate(-50%,-100%);">
-      <div style="display:flex; flex-direction:column; align-items:center; gap:0;">
-        <div style="
-          background:rgba(47,58,34,0.92);
-          color:#F5F3ED;
-          font-family:'Manrope',sans-serif;
-          font-size:11px;
-          font-weight:600;
-          letter-spacing:1.6px;
-          text-transform:uppercase;
-          padding:6px 12px;
-          border-radius:8px;
-          white-space:nowrap;
-          box-shadow:0 4px 14px rgba(0,0,0,0.28);
-        ">Cruz Bay</div>
-        <div style="width:2px; height:16px; background:rgba(47,58,34,0.85);"></div>
-        <div style="width:10px; height:10px; border-radius:50%; background:#4E6132; border:2px solid #F5F3ED; box-shadow:0 2px 8px rgba(0,0,0,0.35);"></div>
-      </div>
-    </div>
-    <!-- Site marker -->
-    <div style="position:absolute; z-index:2; left:var(--site-marker-left); top:var(--site-marker-top); transform:translate(-50%,-100%);">
-      <div style="display:flex; flex-direction:column; align-items:center; gap:0;">
-        <div style="
-          background:rgba(47,58,34,0.92);
-          color:#F5F3ED;
-          font-family:'Manrope',sans-serif;
-          font-size:11px;
-          font-weight:600;
-          letter-spacing:1.6px;
-          text-transform:uppercase;
-          padding:6px 12px;
-          border-radius:8px;
-          white-space:nowrap;
-          box-shadow:0 4px 14px rgba(0,0,0,0.28);
-        ">Site</div>
-        <div style="width:2px; height:16px; background:rgba(47,58,34,0.85);"></div>
-        <div style="width:10px; height:10px; border-radius:50%; background:#4E6132; border:2px solid #F5F3ED; box-shadow:0 2px 8px rgba(0,0,0,0.35);"></div>
-      </div>
-    </div>
-    <!-- Slide label -->
-    <div style="position:absolute; bottom:28px; left:38px; z-index:2;">
-      <div class="eyebrow" style="margin:0; color:#F5F3ED; text-shadow:0 1px 4px rgba(0,0,0,0.5);">St. John, USVI · Site Location</div>
-    </div>
-  </div>
 
-  <!-- ══════════════════════════════════════════
-       SLIDE 5 · A MORE BALANCED GROWTH PATTERN
-  ══════════════════════════════════════════ -->
+  <!-- 
+       SLIDE 5 - A MORE BALANCED GROWTH PATTERN
+   -->
   <div class="slide bg-forest section-cover" id="benefits">
     <div class="inner" style="text-align:center; max-width:1120px;">
       <div class="cover-layout">
@@ -1034,10 +1147,9 @@
         <div style="border:1px solid rgba(78,97,50,0.24); border-radius:14px; background:rgba(255,255,255,0.66); padding:8px 12px; text-align:left;"><div style="font-family:'Cormorant Garamond',serif; font-size:20px; color:#4E6132; line-height:1;">07</div><div style="font-size:11px; color:#2f3828; margin-top:3px;">Cultural + Environmental Stewardship</div></div>
         <div style="border:1px solid rgba(78,97,50,0.24); border-radius:14px; background:rgba(255,255,255,0.66); padding:8px 12px; text-align:left;"><div style="font-family:'Cormorant Garamond',serif; font-size:20px; color:#4E6132; line-height:1;">08</div><div style="font-size:11px; color:#2f3828; margin-top:3px;">Neighborhood-Scale Character</div></div>
         <div style="border:1px solid rgba(78,97,50,0.24); border-radius:14px; background:rgba(255,255,255,0.66); padding:8px 12px; text-align:left;"><div style="font-family:'Cormorant Garamond',serif; font-size:20px; color:#4E6132; line-height:1;">09</div><div style="font-size:11px; color:#2f3828; margin-top:3px;">Public Greenspace & Livability</div></div>
-        <div style="border:1px solid rgba(78,97,50,0.24); border-radius:14px; background:rgba(255,255,255,0.66); padding:8px 12px; text-align:left;"><div style="font-family:'Cormorant Garamond',serif; font-size:20px; color:#4E6132; line-height:1;">10</div><div style="font-size:11px; color:#2f3828; margin-top:3px;">Why Flexibility Is Justified</div></div>
       </div>
         </div>
-        <div class="cover-media a5" style="--cover-img:url('Assets/backgrounds/4e553f257f71bab45faed7b3d3541fd3.jpg');"></div>
+        <div class="cover-media a5" style="--cover-img:url('Assets/backgrounds/4e553f257f71bab45faed7b3d3541fd3.jpg'); --cover-pos:center 78%; --cover-pos-mobile:center 92%;"></div>
       </div>
     </div>
   </div>
@@ -1046,11 +1158,11 @@
     <div class="inner">
       <div class="eyebrow a1">Growth Strategy</div>
       <div class="rule a2"></div>
-      <h2 class="a3">01 · A More Balanced<br><span class="em">Growth Pattern</span></h2>
+      <h2 class="a3">01 - A More Balanced<br><span class="em">Growth Pattern</span></h2>
       <div class="two-col" style="margin-top:28px; gap:48px;">
 
         <div class="col-l">
-          <p class="lead a4">Rather than intensifying already-stressed nodes, this proposal distributes growth thoughtfully — building community where people already live, reducing pressure where it's most acute.</p>
+          <p class="lead a4">Rather than intensifying already-stressed nodes, this proposal distributes growth thoughtfully - building community where people already live, reducing pressure where it's most acute.</p>
           <ul class="pts a5">
             <li><span class="dot"></span>Reduces strain on Cruz Bay's over-burdened infrastructure</li>
             <li><span class="dot"></span>Supports distributed, walkable neighborhood nodes island-wide</li>
@@ -1060,16 +1172,16 @@
         </div>
 
         <div class="col-r" style="display:flex; justify-content:center;">
-          <img class="doodle plain-illustration" src="Assets/illustrations/11.png" alt="Balanced growth illustration">
+          <img class="doodle plain-illustration" src="Assets/Illustrations/11.png" alt="Balanced growth illustration">
         </div>
 
       </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       SLIDE 6 · HOUSING AND OWNERSHIP OPPORTUNITY
-  ══════════════════════════════════════════ -->
+  <!-- 
+       SLIDE 6 - HOUSING AND OWNERSHIP OPPORTUNITY
+   -->
   <div class="slide bg-sand" id="s5">
     <div class="inner">
       <div class="two-col">
@@ -1077,7 +1189,7 @@
         <div class="col-l">
           <div class="eyebrow a1">Housing Access</div>
           <div class="rule a2"></div>
-          <h2 class="a3">02 · Housing and Ownership<br><span class="em">Opportunity</span></h2>
+          <h2 class="a3">02 - Housing and Ownership<br><span class="em">Opportunity</span></h2>
           <p class="lead a4">St. John's housing market is increasingly inaccessible to the people who sustain the island's community. This proposal prioritizes apartments that locals can actually own.</p>
           <ul class="pts a5">
             <li><span class="dot"></span>Attainably priced apartments for purchase by local families</li>
@@ -1087,16 +1199,16 @@
         </div>
 
         <div class="col-r" style="display:flex; justify-content:center;">
-          <img class="doodle" src="Assets/illustrations/12.png" alt="Housing and ownership illustration">
+          <img class="doodle" src="Assets/Illustrations/12.png" alt="Housing and ownership illustration">
         </div>
 
       </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       SLIDE 7 · LOCAL-SERVING COMMERCIAL USES
-  ══════════════════════════════════════════ -->
+  <!-- 
+       SLIDE 7 - LOCAL-SERVING COMMERCIAL USES
+   -->
   <div class="slide bg-forest" id="s6">
     <div class="inner">
       <div class="two-col">
@@ -1104,8 +1216,8 @@
         <div class="col-l">
           <div class="eyebrow a1">Commercial Vision</div>
           <div class="rule a2"></div>
-          <h2 class="a3">03 · Local-Serving<br><span class="em">Commercial Uses</span></h2>
-          <p class="lead a4">The strip mall component is explicitly oriented around everyday resident needs — not tourism, not destination retail. Small footprints, local operators, neighborhood-scale services.</p>
+          <h2 class="a3">03 - Local-Serving<br><span class="em">Commercial Uses</span></h2>
+          <p class="lead a4">The strip mall component is explicitly oriented around everyday resident needs - not tourism, not destination retail. Small footprints, local operators, neighborhood-scale services.</p>
           <ul class="pts a5">
             <li><span class="dot"></span>Grocery, pharmacy, or hardware store access</li>
             <li><span class="dot"></span>Locally owned small businesses and service providers</li>
@@ -1115,49 +1227,16 @@
         </div>
 
         <div class="col-r" style="display:flex; justify-content:center;">
-          <img class="doodle" src="Assets/illustrations/13.png" alt="Local-serving commercial illustration">
+          <img class="doodle" src="Assets/Illustrations/13.png" alt="Local-serving commercial illustration">
         </div>
 
       </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       SLIDE 9 · SUPPORTING YEAR-ROUND LOCAL LIFE
-  ══════════════════════════════════════════ -->
-  <div class="slide bg-ocean" id="s8">
-    <div class="inner">
-      <div class="eyebrow a1">Community Life</div>
-      <div class="rule a2"></div>
-      <h2 class="a3">05 · Supporting Year-Round<br><span class="em">Local Life</span></h2>
-      <p class="lead a4">St. John is more than a destination — it's a living community. This development is designed for the people who are here every day, not just when the ferries are full.</p>
-      <div class="three-col" style="margin-top:24px;">
-
-        <div class="card card-1">
-          <img class="icon48" src="Assets/illustrations/15A.png" alt="Year-round local life icon">
-          <h3 style="margin-top:14px;">12 Months, Not 4</h3>
-          <p>Services and housing that function for residents year-round, not just during peak tourist season when vendors disappear.</p>
-        </div>
-
-        <div class="card card-2">
-          <img class="icon48" src="Assets/illustrations/15B.png" alt="Neighbors, not guests icon">
-          <h3 style="margin-top:14px;">Neighbors, Not Guests</h3>
-          <p>Residents who invest in the community, attend schools, use local services, and participate in civic island life.</p>
-        </div>
-
-        <div class="card card-3">
-          <img class="icon48" src="Assets/illustrations/15C.png" alt="Stay on-island icon">
-          <h3 style="margin-top:14px;">Stay On-Island</h3>
-          <p>Fewer ferry trips to St. Thomas for groceries, hardware, or basic services — everything residents need within reach.</p>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════
-       SLIDE 8 · BROADER LOCAL ECONOMIC PARTICIPATION
-  ══════════════════════════════════════════ -->
+  <!-- ------------------------------------------
+       SLIDE 8 - BROADER LOCAL ECONOMIC PARTICIPATION
+  ------------------------------------------ -->
   <div class="slide bg-wood" id="s7">
     <div class="inner">
       <div class="two-col">
@@ -1165,8 +1244,8 @@
         <div class="col-l">
           <div class="eyebrow a1">Economic Impact</div>
           <div class="rule a2"></div>
-          <h2 class="a3">04 · Broader Local<br><span class="em">Economic Participation</span></h2>
-          <p class="lead a4">Development that benefits the broader island community — not just investors. Local jobs, local operators, local ownership, local spending that stays on St. John.</p>
+          <h2 class="a3">04 Broader Local<br><span class="em">Economic Participation</span></h2>
+          <p class="lead a4">Development that benefits the broader island community not just investors. Local jobs, local operators, local ownership, local spending that stays on St. John.</p>
           <ul class="pts a5">
             <li><span class="dot"></span>Construction jobs for local tradespeople and contractors</li>
             <li><span class="dot"></span>Commercial leases structured to favor local business owners</li>
@@ -1177,16 +1256,49 @@
         </div>
 
         <div class="col-r" style="display:flex; justify-content:center; align-items:center;">
-          <img class="doodle" src="Assets/illustrations/14.png" alt="Economic participation illustration">
+          <img class="doodle" src="Assets/Illustrations/15.png" alt="Economic participation illustration">
         </div>
 
       </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       SLIDE 10 · A PRACTICAL ALTERNATIVE
-  ══════════════════════════════════════════ -->
+  <!-- ------------------------------------------
+       SLIDE 9 - SUPPORTING YEAR-ROUND LOCAL LIFE
+  ------------------------------------------ -->
+  <div class="slide bg-ocean" id="s8">
+    <div class="inner">
+      <div class="eyebrow a1">Community Life</div>
+      <div class="rule a2"></div>
+      <h2 class="a3">05 Supporting Year-Round<br><span class="em">Local Life</span></h2>
+      <p class="lead a4">St. John is more than a destination it's a living community. This development is designed for the people who are here every day, not just when the ferries are full.</p>
+      <div class="three-col" style="margin-top:24px;">
+
+        <div class="card card-1">
+          <img class="icon48" src="Assets/Illustrations/15A.png" alt="Year-round local life icon">
+          <h3 style="margin-top:14px;">12 Months, Not 4</h3>
+          <p>Services and housing that function for residents year-round, not just during peak tourist season when vendors disappear.</p>
+        </div>
+
+        <div class="card card-2">
+          <img class="icon48" src="Assets/Illustrations/15B.png" alt="Neighbors, not guests icon">
+          <h3 style="margin-top:14px;">Neighbors, Not Guests</h3>
+          <p>Residents who invest in the community, attend schools, use local services, and participate in civic island life.</p>
+        </div>
+
+        <div class="card card-3">
+          <img class="icon48" src="Assets/Illustrations/15C.png" alt="Stay on-island icon">
+          <h3 style="margin-top:14px;">Stay On-Island</h3>
+          <p>Fewer ferry trips to St. Thomas for groceries, hardware, or basic services - everything residents need within reach.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 
+       SLIDE 10 - A PRACTICAL ALTERNATIVE
+   -->
   <div class="slide bg-sand" id="s9">
     <div class="inner">
       <div class="two-col">
@@ -1194,49 +1306,49 @@
         <div class="col-l">
           <div class="eyebrow a1">Alternative Path</div>
           <div class="rule a2"></div>
-          <h2 class="a3">06 · A Practical Alternative to<br><span class="em">Higher-Pressure Areas</span></h2>
+          <h2 class="a3">06 - Practical Alternative to<br><span class="em">Higher-Pressure Areas</span></h2>
           <p class="lead a4">Without thoughtful spot zoning, development pressure defaults to the most sensitive and tourist-facing areas. This proposal offers a planned, community-first alternative.</p>
           <ul class="pts a5">
             <li><span class="dot"></span>Neighborhood-scale vs. resort-scale or high-density development</li>
-            <li><span class="dot"></span>Integrated park and community space included by design — not optional</li>
+            <li><span class="dot"></span>Integrated park and community space included by design - not optional</li>
             <li><span class="dot"></span>Reduces incentive for denser tourist-zone infill elsewhere</li>
             <li><span class="dot"></span>Planned, controlled mixed-use vs. unplanned or opportunistic development</li>
           </ul>
         </div>
 
         <div class="col-r" style="display:flex; justify-content:center;">
-          <img class="doodle" src="Assets/illustrations/16.png" alt="Practical alternative illustration">
+          <img class="doodle" src="Assets/Illustrations/16.png" alt="Practical alternative illustration">
         </div>
 
       </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       SLIDE 11 · CULTURALLY RESPECTFUL + ENV CONSCIOUS
-  ══════════════════════════════════════════ -->
+  <!-- 
+       SLIDE 11 - CULTURALLY RESPECTFUL + ENV CONSCIOUS
+   -->
   <div class="slide bg-forest" id="s10">
     <div class="inner">
       <div class="eyebrow a1">Our Commitments</div>
       <div class="rule a2"></div>
-      <h2 class="a3">07 · Culturally Respectful &amp;<br><span class="em">Environmentally Conscious</span></h2>
-      <p class="lead a4" style="max-width:700px;">St. John's character — its people, its landscape, its rhythm — is not a backdrop. It's the reason this proposal takes the form it does.</p>
+      <h2 class="a3">07 - Culturally Respectful &amp;<br><span class="em">Environmentally Conscious</span></h2>
+      <p class="lead a4" style="max-width:700px;">St. John's character - its people, its landscape, its rhythm - is not a backdrop. It's the reason this proposal takes the form it does.</p>
       <div class="three-col" style="margin-top:24px;">
 
         <div class="card card-1">
-          <img class="icon48" src="Assets/illustrations/17A.png" alt="Native planting icon">
+          <img class="icon48" src="Assets/Illustrations/17A.png" alt="Native planting icon">
           <h3 style="margin-top:14px;">Native Planting</h3>
-          <p>Landscaping uses native Caribbean species — drought-tolerant, habitat-supportive, and ecologically appropriate to the island.</p>
+          <p>Landscaping uses native Caribbean species - drought-tolerant, habitat-supportive, and ecologically appropriate to the island.</p>
         </div>
 
         <div class="card card-2">
-          <img class="icon48" src="Assets/illustrations/17B.png" alt="Water stewardship icon">
+          <img class="icon48" src="Assets/Illustrations/17B.png" alt="Water stewardship icon">
           <h3 style="margin-top:14px;">Water Stewardship</h3>
           <p>Rainwater collection, permeable surfaces, and low-impact stormwater management are integrated into the site plan.</p>
         </div>
 
         <div class="card card-3">
-          <img class="icon48" src="Assets/illustrations/17C.png" alt="Cultural sensitivity icon">
+          <img class="icon48" src="Assets/Illustrations/17C.png" alt="Cultural sensitivity icon">
           <h3 style="margin-top:14px;">Cultural Sensitivity</h3>
           <p>Design language, materials, and scale are respectful of the island's architectural heritage and community identity.</p>
         </div>
@@ -1245,9 +1357,9 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       SLIDE 12 · NEIGHBORHOOD-SCALE CHARACTER
-  ══════════════════════════════════════════ -->
+  <!-- 
+       SLIDE 12 - NEIGHBORHOOD-SCALE CHARACTER
+   -->
   <div class="slide bg-cream" id="s11">
     <div class="inner">
       <div class="two-col">
@@ -1259,69 +1371,13 @@
           <p class="lead a4">Everything about this proposal is calibrated to fit into — not stand out from — the existing residential fabric of the surrounding community.</p>
           <ul class="pts a5">
             <li><span class="dot"></span>Low-rise, 2–3 story maximum building heights throughout</li>
-            <li><span class="dot"></span>Setbacks, buffers, and landscaped transitions to neighboring lots</li>
             <li><span class="dot"></span>Natural materials: wood, stone, painted stucco in earth tones</li>
-            <li><span class="dot"></span>Parking and service access oriented away from residences</li>
-            <li><span class="dot"></span>Lighting designed to minimize nighttime visual and noise impact</li>
+            <li><span class="dot"></span>Design that doensn't disrupt, but blends in</li>
           </ul>
         </div>
 
         <div class="col-r" style="display:flex; justify-content:center;">
-          <!-- Street elevation doodle -->
-          <svg class="doodle" viewBox="0 0 310 278" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="310" height="278" rx="22" fill="#FAFAF5"/>
-            <rect width="310" height="136" rx="22" fill="#E8F6F8"/>
-            <!-- Background trees -->
-            <circle cx="272" cy="112" r="32" fill="#7AAF6E" opacity="0.5"/>
-            <circle cx="294" cy="102" r="26" fill="#5B8C5A" opacity="0.5"/>
-            <circle cx="38"  cy="116" r="30" fill="#7AAF6E" opacity="0.5"/>
-            <!-- Neighbor house left -->
-            <rect x="14" y="134" width="56" height="58" rx="3" fill="#F5E6C8" stroke="#C9A96E" stroke-width="1.5"/>
-            <polygon points="8,134 76,134 42,110" fill="#C9A96E"/>
-            <rect x="30" y="160" width="14" height="32" rx="2" fill="#E8D5A3"/>
-            <rect x="16" y="144" width="12" height="11" rx="1" fill="#B8E4E8"/>
-            <rect x="52" y="144" width="12" height="11" rx="1" fill="#B8E4E8"/>
-            <!-- Our development center – compatible 2 story -->
-            <rect x="90" y="120" width="130" height="72" rx="5" fill="#7EC8C8" stroke="#4A9BA5" stroke-width="2"/>
-            <rect x="90" y="110" width="130" height="14" rx="4" fill="#4A9BA5"/>
-            <text x="155" y="121" font-size="8" fill="white" font-family="Georgia" text-anchor="middle">PROPOSED · 2 STORY MAX</text>
-            <!-- Window rows -->
-            <rect x="100" y="128" width="12" height="10" rx="1" fill="#E8F6F8"/>
-            <rect x="116" y="128" width="12" height="10" rx="1" fill="#E8F6F8"/>
-            <rect x="132" y="128" width="12" height="10" rx="1" fill="#B8E4E8"/>
-            <rect x="148" y="128" width="12" height="10" rx="1" fill="#E8F6F8"/>
-            <rect x="164" y="128" width="12" height="10" rx="1" fill="#E8F6F8"/>
-            <rect x="180" y="128" width="12" height="10" rx="1" fill="#B8E4E8"/>
-            <rect x="196" y="128" width="12" height="10" rx="1" fill="#E8F6F8"/>
-            <rect x="100" y="142" width="12" height="10" rx="1" fill="#B8E4E8"/>
-            <rect x="116" y="142" width="12" height="10" rx="1" fill="#E8F6F8"/>
-            <rect x="148" y="142" width="12" height="10" rx="1" fill="#B8E4E8"/>
-            <rect x="180" y="142" width="12" height="10" rx="1" fill="#E8F6F8"/>
-            <rect x="196" y="142" width="12" height="10" rx="1" fill="#B8E4E8"/>
-            <!-- Doors -->
-            <rect x="135" y="155" width="14" height="37" rx="2" fill="#F7F0E0"/>
-            <rect x="157" y="155" width="14" height="37" rx="2" fill="#F7F0E0"/>
-            <!-- Neighbor house right -->
-            <rect x="240" y="138" width="56" height="54" rx="3" fill="#F5E6C8" stroke="#C9A96E" stroke-width="1.5"/>
-            <polygon points="234,138 302,138 268,116" fill="#C9A96E"/>
-            <rect x="256" y="162" width="14" height="30" rx="2" fill="#E8D5A3"/>
-            <rect x="242" y="148" width="11" height="10" rx="1" fill="#B8E4E8"/>
-            <rect x="275" y="148" width="11" height="10" rx="1" fill="#B8E4E8"/>
-            <!-- Ground -->
-            <rect x="0" y="192" width="310" height="42" fill="#A8D89B" opacity="0.35"/>
-            <!-- Buffer shrubs -->
-            <ellipse cx="88" cy="194" rx="14" ry="9" fill="#5B8C5A" opacity="0.7"/>
-            <ellipse cx="222" cy="194" rx="14" ry="9" fill="#5B8C5A" opacity="0.7"/>
-            <!-- Height arrow -->
-            <line x1="228" y1="110" x2="228" y2="192" stroke="#4A9BA5" stroke-width="1.2" stroke-dasharray="3 2"/>
-            <line x1="224" y1="114" x2="232" y2="114" stroke="#4A9BA5" stroke-width="1.2"/>
-            <line x1="224" y1="192" x2="232" y2="192" stroke="#4A9BA5" stroke-width="1.2"/>
-            <text x="238" y="155" font-size="8" fill="#4A9BA5" font-family="Georgia">2–3 story</text>
-            <text x="238" y="166" font-size="8" fill="#4A9BA5" font-family="Georgia">max height</text>
-            <!-- Sidewalk -->
-            <rect x="0" y="192" width="310" height="10" fill="#E8D5A3" opacity="0.55"/>
-            <text x="155" y="262" font-size="10" fill="#7A7A6A" font-family="Georgia" text-anchor="middle" font-style="italic">Low-rise · earth tones · buffered · neighborhood-compatible</text>
-          </svg>
+          <img class="doodle" src="Assets/Illustrations/18.png" alt="Neighborhood-scale character illustration">
         </div>
 
       </div>
@@ -1350,46 +1406,7 @@
         </div>
 
         <div class="col-r" style="display:flex; justify-content:center;">
-          <!-- Park scene doodle -->
-          <svg class="doodle" viewBox="0 0 310 278" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="310" height="278" rx="22" fill="#E8F0E5"/>
-            <rect width="310" height="144" rx="22" fill="#E8F6F8"/>
-            <!-- Large trees -->
-            <circle cx="68" cy="106" r="48" fill="#5B8C5A" opacity="0.8"/>
-            <circle cx="60" cy="96"  r="38" fill="#7AAF6E"/>
-            <rect x="64" y="144" width="8" height="42" fill="#8B6B47"/>
-            <circle cx="230" cy="96" r="42" fill="#5B8C5A" opacity="0.8"/>
-            <circle cx="236" cy="88" r="34" fill="#7AAF6E"/>
-            <rect x="232" y="138" width="8" height="50" fill="#8B6B47"/>
-            <!-- Mid tree -->
-            <circle cx="155" cy="122" r="27" fill="#A8D89B"/>
-            <circle cx="153" cy="116" r="22" fill="#7AAF6E"/>
-            <rect x="152" y="142" width="6" height="34" fill="#8B6B47"/>
-            <!-- Ground -->
-            <path d="M0 172 Q78 162 155 172 Q232 182 310 172 L310 278 L0 278Z" fill="#7AAF6E" opacity="0.5"/>
-            <rect x="0" y="172" width="310" height="106" fill="#A8D89B" opacity="0.45"/>
-            <!-- Path -->
-            <path d="M30 268 Q92 228 155 208 Q218 228 280 268" stroke="#E8D5A3" stroke-width="14" fill="none" stroke-linecap="round" opacity="0.85"/>
-            <!-- Bench -->
-            <rect x="114" y="216" width="42" height="5" rx="2" fill="#8B6B47"/>
-            <rect x="116" y="221" width="4" height="9" fill="#8B6B47"/>
-            <rect x="150" y="221" width="4" height="9" fill="#8B6B47"/>
-            <!-- People -->
-            <circle cx="78"  cy="232" r="6" fill="#4A9BA5"/>
-            <line x1="78" y1="238" x2="78" y2="252" stroke="#4A9BA5" stroke-width="2"/>
-            <circle cx="93"  cy="238" r="4" fill="#7EC8C8"/>
-            <line x1="93" y1="242" x2="93" y2="254" stroke="#7EC8C8" stroke-width="1.5"/>
-            <circle cx="210" cy="230" r="6" fill="#5B8C5A"/>
-            <line x1="210" y1="236" x2="210" y2="250" stroke="#5B8C5A" stroke-width="2"/>
-            <!-- Birds -->
-            <path d="M170 78 Q175 75 180 78" stroke="#4A9BA5" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <path d="M182 78 Q187 75 192 78" stroke="#4A9BA5" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <path d="M124 64 Q128 62 132 64" stroke="#7EC8C8" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <!-- Flowers -->
-            <circle cx="42"  cy="234" r="4" fill="#F5E6C8" stroke="#C9A96E" stroke-width="1"/>
-            <circle cx="268" cy="242" r="4" fill="#F5E6C8" stroke="#C9A96E" stroke-width="1"/>
-            <circle cx="255" cy="232" r="3" fill="#7EC8C8" stroke="#4A9BA5" stroke-width="1"/>
-          </svg>
+          <img class="doodle" src="Assets/Illustrations/19.png" alt="Public greenspace illustration">
         </div>
 
       </div>
@@ -1403,7 +1420,7 @@
     <div class="inner">
       <div class="eyebrow a1">The Case for Flexibility</div>
       <div class="rule a2"></div>
-      <h2 class="a3">10 · Why Zoning Flexibility<br><span class="em">Is Justified</span></h2>
+      <h2 class="a3">Why Zoning Flexibility<br><span class="em">Is Justified</span></h2>
       <div style="margin-top:28px; max-width:1040px;">
 
         <ul class="pts a4">
@@ -1425,7 +1442,7 @@
     <div class="inner" style="text-align:center; max-width:960px; margin:0 auto;">
       <div class="eyebrow a1" style="text-align:center;">Our Ask</div>
       <div class="rule a2" style="margin:0 auto 22px;"></div>
-      <h2 class="a3" style="font-size:clamp(26px,4vw,52px);">Request and<br><span class="em">Next Steps</span></h2>
+      <h2 class="a3" style="font-size:clamp(26px,4vw,52px);">Request and <span class="em">Next Steps</span></h2>
       <p class="a4" style="text-align:center; margin:20px auto 36px; max-width:620px; font-size:clamp(14px,1.5vw,18px);">We respectfully request that DPNR approve spot zoning for these parcels to permit mixed residential and commercial use — in recognition of the genuine, lasting community benefit this development delivers.</p>
       <div class="three-col a5">
 
@@ -1458,9 +1475,9 @@
 
 <!-- ─── NAVIGATION ─── -->
 <div class="nav">
-  <button class="nav-btn" id="btnPrev" type="button" onclick="go(-1)" ontouchstart="event.preventDefault();go(-1)" onpointerdown="event.preventDefault();go(-1)">&#8592;</button>
+  <button class="nav-btn" id="btnPrev" type="button">&#8592;</button>
   <span class="slide-counter" id="ctr">1 / 15</span>
-  <button class="nav-btn" id="btnNext" type="button" onclick="go(1)" ontouchstart="event.preventDefault();go(1)" onpointerdown="event.preventDefault();go(1)">&#8594;</button>
+  <button class="nav-btn" id="btnNext" type="button">&#8594;</button>
 </div>
 
 <!-- ─── SLIDE DOTS ─── -->
@@ -1474,8 +1491,91 @@
   const dotsEl = document.getElementById('dots');
   const btnPrev = document.getElementById('btnPrev');
   const btnNext = document.getElementById('btnNext');
+  const mapSlide = document.getElementById('smap');
+  const mapCanvas = document.getElementById('smap-canvas');
+  const mapMarkers = Array.from(document.querySelectorAll('#smap .map-marker'));
+  const illustrationImgs = Array.from(document.querySelectorAll('img[src*="Assets/Illustrations/"], img[src*="Assets/illustrations/"]'));
   let cur = 0;
   let lastNavTs = 0;
+  ctr.textContent = `1 / ${N}`;
+
+  const mapImg = new Image();
+  mapImg.src = 'Assets/map.png';
+
+  function swapIllustrationCasePath(src) {
+    if (!src) return src;
+    if (src.includes('Assets/Illustrations/')) return src.replace('Assets/Illustrations/', 'Assets/illustrations/');
+    if (src.includes('Assets/illustrations/')) return src.replace('Assets/illustrations/', 'Assets/Illustrations/');
+    return src;
+  }
+
+  illustrationImgs.forEach(img => {
+    img.addEventListener('error', () => {
+      if (img.dataset.caseRetryDone === '1') return;
+      img.dataset.caseRetryDone = '1';
+      const retry = swapIllustrationCasePath(img.getAttribute('src') || '');
+      if (retry && retry !== img.getAttribute('src')) img.setAttribute('src', retry);
+    });
+  });
+
+  function parsePosToken(token, fallback) {
+    const t = (token || '').trim().toLowerCase();
+    if (!t) return fallback;
+    if (t.endsWith('%')) return Math.max(0, Math.min(1, parseFloat(t) / 100));
+    if (t === 'left' || t === 'top') return 0;
+    if (t === 'center') return 0.5;
+    if (t === 'right' || t === 'bottom') return 1;
+    const n = parseFloat(t);
+    return Number.isFinite(n) ? n : fallback;
+  }
+
+  function parsePercentVar(el, varName, fallback) {
+    const raw = getComputedStyle(el).getPropertyValue(varName).trim();
+    if (raw.endsWith('%')) {
+      const v = parseFloat(raw);
+      if (Number.isFinite(v)) return v / 100;
+    }
+    const n = parseFloat(raw);
+    return Number.isFinite(n) ? n : fallback;
+  }
+
+  function layoutMapMarkers() {
+    if (!mapSlide || !mapCanvas || !mapImg.naturalWidth || !mapImg.naturalHeight) return;
+    const cw = mapCanvas.clientWidth;
+    const ch = mapCanvas.clientHeight;
+    if (!cw || !ch) return;
+    const iw = mapImg.naturalWidth;
+    const ih = mapImg.naturalHeight;
+    const scale = Math.max(cw / iw, ch / ih);
+    const rw = iw * scale;
+    const rh = ih * scale;
+    const markerData = mapMarkers.map(m => ({
+      el: m,
+      xPct: parsePercentVar(mapSlide, m.dataset.xVar, 0.5),
+      yPct: parsePercentVar(mapSlide, m.dataset.yVar, 0.5)
+    }));
+    let bgX = parsePosToken(getComputedStyle(mapSlide).getPropertyValue('--map-bg-x'), 0.5);
+    const bgY = parsePosToken(getComputedStyle(mapSlide).getPropertyValue('--map-bg-y'), 0.5);
+    if (cw <= 520 && rw > cw && markerData.length) {
+      const minX = Math.min(...markerData.map(m => m.xPct));
+      const maxX = Math.max(...markerData.map(m => m.xPct));
+      const focusX = (minX + maxX) / 2;
+      const targetX = 0.5;
+      bgX = (cw * targetX - rw * focusX) / (cw - rw);
+      bgX = Math.max(0, Math.min(1, bgX));
+    }
+    mapCanvas.style.backgroundPosition = `${(bgX * 100).toFixed(3)}% ${(bgY * 100).toFixed(3)}%`;
+    const ox = (cw - rw) * bgX;
+    const oy = (ch - rh) * bgY;
+    markerData.forEach(m => {
+      m.el.style.left = `${ox + rw * m.xPct}px`;
+      m.el.style.top = `${oy + rh * m.yPct}px`;
+    });
+  }
+
+  mapImg.addEventListener('load', () => requestAnimationFrame(layoutMapMarkers));
+  window.addEventListener('resize', () => requestAnimationFrame(layoutMapMarkers));
+  window.addEventListener('orientationchange', () => requestAnimationFrame(layoutMapMarkers));
 
   function bindActivate(node, handler) {
     let lastTouchTs = 0;
@@ -1515,6 +1615,7 @@
     cur = Math.max(0, Math.min(N - 1, i));
     slides[cur].classList.add('active');
     dotNodes[cur].classList.add('on');
+    requestAnimationFrame(layoutMapMarkers);
     prog.style.setProperty('--p', ((cur + 1) / N).toString());
     ctr.textContent  = (cur + 1) + ' / ' + N;
   }
@@ -1545,7 +1646,14 @@
 
   // Init progress
   prog.style.setProperty('--p', (1 / N).toString());
+  requestAnimationFrame(layoutMapMarkers);
 </script>
 
 </body>
 </html>
+
+
+
+
+
+

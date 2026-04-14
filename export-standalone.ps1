@@ -5,7 +5,7 @@ $src = Join-Path $root 'index.html'
 $out = Join-Path $root 'index-standalone.html'
 
 $html = [IO.File]::ReadAllText($src)
-$pattern = 'Assets/[^"'')]+?(?=["'')])'
+$pattern = 'Assets/[^"'']+?(?=["''])'
 $refs = [regex]::Matches($html, $pattern) | ForEach-Object { $_.Value.Trim() } | Sort-Object -Unique
 $transparent = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aF9sAAAAASUVORK5CYII='
 $missing = New-Object System.Collections.Generic.List[string]
