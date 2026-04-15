@@ -588,6 +588,77 @@
       font-size: 18px;
       line-height: 1;
     }
+    .nav-install {
+      display: none;
+      width: auto;
+      min-width: 80px;
+      border-radius: 999px;
+      padding: 0 14px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .install-sheet[hidden] { display: none; }
+    .install-sheet {
+      position: fixed;
+      inset: 0;
+      z-index: 320;
+      background: rgba(18, 25, 14, 0.28);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 16px 12px calc(16px + env(safe-area-inset-bottom));
+    }
+    .install-card {
+      width: min(460px, calc(100vw - 24px));
+      background: rgba(246, 244, 237, 0.98);
+      border: 1px solid rgba(78, 97, 50, 0.22);
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(24, 36, 21, 0.22);
+      padding: 14px 14px 12px;
+      color: #2F3A22;
+    }
+    .install-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .install-head strong {
+      font-size: 14px;
+      letter-spacing: 0.2px;
+    }
+    .install-close {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(78, 97, 50, 0.35);
+      background: rgba(255,255,255,0.9);
+      color: #4E6132;
+      font-size: 15px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .install-body {
+      font-size: 13px;
+      line-height: 1.45;
+      color: #46543a;
+      margin-bottom: 8px;
+    }
+    .install-steps {
+      margin: 0 0 0 18px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      color: #2F3A22;
+      font-size: 13px;
+      line-height: 1.45;
+    }
 
     /* Slide dots */
     .dots {
@@ -833,6 +904,7 @@
       .dots { display: none; }
       .nav { bottom: max(8px, env(safe-area-inset-bottom)); padding: 6px 10px; gap: 12px; }
       .nav-btn { width: 44px; height: 44px; }
+      .nav-install { display: flex; min-width: 84px; height: 44px; }
       .nav-fs { display: flex; }
     }
   </style>
@@ -1486,13 +1558,28 @@
 <!-- ─── NAVIGATION ─── -->
 <div class="nav">
   <button class="nav-btn" id="btnPrev" type="button">&#8592;</button>
-  <button class="nav-btn nav-fs" id="btnFs" type="button" aria-label="Enter fullscreen" title="Enter fullscreen">⛶</button>
   <span class="slide-counter" id="ctr">1 / 15</span>
   <button class="nav-btn" id="btnNext" type="button">&#8594;</button>
+  <button class="nav-btn nav-install" id="btnInstall" type="button" aria-label="Install app" title="Install app">Install</button>
+  <button class="nav-btn nav-fs" id="btnFs" type="button" aria-label="Enter fullscreen" title="Enter fullscreen">⛶</button>
 </div>
 
 <!-- ─── SLIDE DOTS ─── -->
 <div class="dots" id="dots"></div>
+<div class="install-sheet" id="installSheet" hidden>
+  <div class="install-card">
+    <div class="install-head">
+      <strong id="installTitle">Install this app</strong>
+      <button class="install-close" id="installClose" type="button" aria-label="Close install help">✕</button>
+    </div>
+    <p class="install-body" id="installBody">Install from your browser menu:</p>
+    <ol class="install-steps" id="installSteps">
+      <li>Open your browser menu for this page.</li>
+      <li>Choose Install app or Add to Home Screen.</li>
+      <li>Confirm and open from your home screen.</li>
+    </ol>
+  </div>
+</div>
 
 <script>
   const slides = Array.from(document.querySelectorAll('.slide'));
@@ -1502,13 +1589,21 @@
   const dotsEl = document.getElementById('dots');
   const btnPrev = document.getElementById('btnPrev');
   const btnNext = document.getElementById('btnNext');
+  const btnInstall = document.getElementById('btnInstall');
   const btnFs = document.getElementById('btnFs');
+  const installSheet = document.getElementById('installSheet');
+  const installClose = document.getElementById('installClose');
+  const installTitle = document.getElementById('installTitle');
+  const installBody = document.getElementById('installBody');
+  const installSteps = document.getElementById('installSteps');
   const mapSlide = document.getElementById('smap');
   const mapCanvas = document.getElementById('smap-canvas');
   const mapMarkers = Array.from(document.querySelectorAll('#smap .map-marker'));
   const illustrationImgs = Array.from(document.querySelectorAll('img[src*="Assets/Illustrations/"], img[src*="Assets/illustrations/"]'));
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
   let cur = 0;
   let lastNavTs = 0;
+  let deferredInstallPrompt = null;
   ctr.textContent = `1 / ${N}`;
 
   const mapImg = new Image();
@@ -1517,6 +1612,9 @@
   function fullscreenSupported() {
     const el = document.documentElement;
     return !!(el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen);
+  }
+  function isIosDevice() {
+    return /iphone|ipad|ipod/i.test(window.navigator.userAgent || '');
   }
 
   function fullscreenElement() {
@@ -1550,6 +1648,22 @@
     btnFs.textContent = inFs ? '✕' : '⛶';
     btnFs.setAttribute('aria-label', inFs ? 'Exit fullscreen' : 'Enter fullscreen');
     btnFs.setAttribute('title', inFs ? 'Exit fullscreen' : 'Enter fullscreen');
+  }
+  function openInstallSheet(mode) {
+    if (!installSheet || !installTitle || !installBody || !installSteps) return;
+    if (mode === 'ios') {
+      installTitle.textContent = 'Install on iPhone';
+      installBody.textContent = 'Use Safari Add to Home Screen to run without browser bars:';
+      installSteps.innerHTML = '<li>Tap the Share button in Safari.</li><li>Select Add to Home Screen.</li><li>Tap Add, then launch from the home screen icon.</li>';
+    } else {
+      installTitle.textContent = 'Install this app';
+      installBody.textContent = 'Install using your browser menu:';
+      installSteps.innerHTML = '<li>Open the browser menu.</li><li>Select Install app or Add to Home Screen.</li><li>Confirm and open from your home screen.</li>';
+    }
+    installSheet.hidden = false;
+  }
+  function closeInstallSheet() {
+    if (installSheet) installSheet.hidden = true;
   }
 
   function swapIllustrationCasePath(src) {
@@ -1628,6 +1742,15 @@
   window.addEventListener('orientationchange', () => requestAnimationFrame(layoutMapMarkers));
   document.addEventListener('fullscreenchange', syncFullscreenButton);
   document.addEventListener('webkitfullscreenchange', syncFullscreenButton);
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredInstallPrompt = e;
+  });
+  window.addEventListener('appinstalled', () => {
+    deferredInstallPrompt = null;
+    if (btnInstall) btnInstall.style.display = 'none';
+    closeInstallSheet();
+  });
 
   function bindActivate(node, handler) {
     let lastTouchTs = 0;
@@ -1681,14 +1804,40 @@
 
   bindActivate(btnPrev, () => go(-1));
   bindActivate(btnNext, () => go(1));
+  if (installClose) bindActivate(installClose, () => closeInstallSheet());
+  if (installSheet) {
+    installSheet.addEventListener('click', e => {
+      if (e.target === installSheet) closeInstallSheet();
+    });
+  }
+  if (btnInstall) {
+    if (isStandalone) {
+      btnInstall.style.display = 'none';
+    } else {
+      bindActivate(btnInstall, async () => {
+        if (deferredInstallPrompt) {
+          deferredInstallPrompt.prompt();
+          try {
+            await deferredInstallPrompt.userChoice;
+          } catch (_) {}
+          deferredInstallPrompt = null;
+          return;
+        }
+        if (isIosDevice()) {
+          openInstallSheet('ios');
+          return;
+        }
+        openInstallSheet('other');
+      });
+    }
+  }
   if (btnFs) {
-    const standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-    if (standalone) {
+    if (isStandalone) {
       btnFs.style.display = 'none';
     } else {
       bindActivate(btnFs, () => {
         if (!fullscreenSupported()) {
-          alert('On iPhone, add this page to Home Screen and open it there to hide browser bars.');
+          openInstallSheet(isIosDevice() ? 'ios' : 'other');
           return;
         }
         if (fullscreenElement()) exitFullscreenMode();
