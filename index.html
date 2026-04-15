@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#8EA38B">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Community-Serving Mixed-Use Development - St. John, USVI</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap');
@@ -579,6 +583,11 @@
       min-width: 52px;
       text-align: center;
     }
+    .nav-fs {
+      display: none;
+      font-size: 18px;
+      line-height: 1;
+    }
 
     /* Slide dots */
     .dots {
@@ -824,6 +833,7 @@
       .dots { display: none; }
       .nav { bottom: max(8px, env(safe-area-inset-bottom)); padding: 6px 10px; gap: 12px; }
       .nav-btn { width: 44px; height: 44px; }
+      .nav-fs { display: flex; }
     }
   </style>
 </head>
@@ -1476,6 +1486,7 @@
 <!-- ─── NAVIGATION ─── -->
 <div class="nav">
   <button class="nav-btn" id="btnPrev" type="button">&#8592;</button>
+  <button class="nav-btn nav-fs" id="btnFs" type="button" aria-label="Enter fullscreen" title="Enter fullscreen">⛶</button>
   <span class="slide-counter" id="ctr">1 / 15</span>
   <button class="nav-btn" id="btnNext" type="button">&#8594;</button>
 </div>
@@ -1491,6 +1502,7 @@
   const dotsEl = document.getElementById('dots');
   const btnPrev = document.getElementById('btnPrev');
   const btnNext = document.getElementById('btnNext');
+  const btnFs = document.getElementById('btnFs');
   const mapSlide = document.getElementById('smap');
   const mapCanvas = document.getElementById('smap-canvas');
   const mapMarkers = Array.from(document.querySelectorAll('#smap .map-marker'));
@@ -1501,6 +1513,38 @@
 
   const mapImg = new Image();
   mapImg.src = 'Assets/map.png';
+
+  function fullscreenSupported() {
+    const el = document.documentElement;
+    return !!(el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen);
+  }
+
+  function fullscreenElement() {
+    return document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement || null;
+  }
+
+  function requestFullscreenMode() {
+    const el = document.documentElement;
+    if (el.requestFullscreen) return el.requestFullscreen().catch(() => {});
+    if (el.webkitRequestFullscreen) return el.webkitRequestFullscreen();
+    if (el.msRequestFullscreen) return el.msRequestFullscreen();
+    return null;
+  }
+
+  function exitFullscreenMode() {
+    if (document.exitFullscreen) return document.exitFullscreen().catch(() => {});
+    if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
+    if (document.msExitFullscreen) return document.msExitFullscreen();
+    return null;
+  }
+
+  function syncFullscreenButton() {
+    if (!btnFs) return;
+    const inFs = !!fullscreenElement();
+    btnFs.textContent = inFs ? '✕' : '⛶';
+    btnFs.setAttribute('aria-label', inFs ? 'Exit fullscreen' : 'Enter fullscreen');
+    btnFs.setAttribute('title', inFs ? 'Exit fullscreen' : 'Enter fullscreen');
+  }
 
   function swapIllustrationCasePath(src) {
     if (!src) return src;
@@ -1576,6 +1620,8 @@
   mapImg.addEventListener('load', () => requestAnimationFrame(layoutMapMarkers));
   window.addEventListener('resize', () => requestAnimationFrame(layoutMapMarkers));
   window.addEventListener('orientationchange', () => requestAnimationFrame(layoutMapMarkers));
+  document.addEventListener('fullscreenchange', syncFullscreenButton);
+  document.addEventListener('webkitfullscreenchange', syncFullscreenButton);
 
   function bindActivate(node, handler) {
     let lastTouchTs = 0;
@@ -1629,6 +1675,18 @@
 
   bindActivate(btnPrev, () => go(-1));
   bindActivate(btnNext, () => go(1));
+  if (btnFs) {
+    const standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    if (!fullscreenSupported() || standalone) {
+      btnFs.style.display = 'none';
+    } else {
+      bindActivate(btnFs, () => {
+        if (fullscreenElement()) exitFullscreenMode();
+        else requestFullscreenMode();
+      });
+      syncFullscreenButton();
+    }
+  }
 
   // Keyboard
   document.addEventListener('keydown', e => {
