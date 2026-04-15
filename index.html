@@ -1540,6 +1540,12 @@
 
   function syncFullscreenButton() {
     if (!btnFs) return;
+    if (!fullscreenSupported()) {
+      btnFs.textContent = '⛶';
+      btnFs.setAttribute('aria-label', 'Fullscreen options');
+      btnFs.setAttribute('title', 'Fullscreen options');
+      return;
+    }
     const inFs = !!fullscreenElement();
     btnFs.textContent = inFs ? '✕' : '⛶';
     btnFs.setAttribute('aria-label', inFs ? 'Exit fullscreen' : 'Enter fullscreen');
@@ -1677,10 +1683,14 @@
   bindActivate(btnNext, () => go(1));
   if (btnFs) {
     const standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-    if (!fullscreenSupported() || standalone) {
+    if (standalone) {
       btnFs.style.display = 'none';
     } else {
       bindActivate(btnFs, () => {
+        if (!fullscreenSupported()) {
+          alert('On iPhone, add this page to Home Screen and open it there to hide browser bars.');
+          return;
+        }
         if (fullscreenElement()) exitFullscreenMode();
         else requestFullscreenMode();
       });
