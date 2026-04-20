@@ -232,6 +232,9 @@
     .render-slide::after {
       display: none;
     }
+    #site-dev img {
+      object-fit: contain !important;
+    }
     .render-slide img {
       width: 100%;
       height: 100%;
@@ -504,6 +507,42 @@
       border: 0;
       box-shadow: none;
     }
+    #s3 {
+      padding: 0;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+    #s3 .inner {
+      height: 100%;
+      width: 50%;
+      max-width: none;
+      padding: 56px 44px 56px 80px;
+      display: flex;
+      align-items: center;
+    }
+    #s3 .two-col {
+      display: block;
+    }
+    #s3 .col-l {
+      padding: 0;
+      align-self: auto;
+    }
+    #s3 .edge-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 50%;
+      overflow: hidden;
+      z-index: 1;
+    }
+    #s3 .edge-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
     #smap {
       --map-bg-x: 50%;
       --map-bg-y: 50%;
@@ -722,6 +761,10 @@
         align-items: stretch !important;
         justify-content: stretch !important;
       }
+      .render-slide img {
+        object-fit: contain;
+        object-position: center;
+      }
       .eyebrow { font-size: 9px; letter-spacing: 2.2px; margin-bottom: 10px; }
       #s4 .inner {
         margin-top: 6px;
@@ -740,6 +783,7 @@
       #s4 .doodle.plain-illustration {
         width: min(72vw, 300px);
         max-width: min(72vw, 300px);
+        margin: 0 auto;
       }
       .rule { width: 44px; margin-bottom: 16px; }
       h1 { font-size: clamp(32px, 8.6vw, 46px); }
@@ -748,6 +792,33 @@
       .pts { gap: 10px; }
       .pts li { font-size: 13px; line-height: 1.5; }
       .two-col { grid-template-columns: 1fr; gap: 20px; }
+      #s3 {
+        padding: 32px 20px calc(102px + env(safe-area-inset-bottom));
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+      }
+      #s3 .inner {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        display: block;
+        flex: 1 1 auto;
+      }
+      #s3 .two-col {
+        display: grid;
+      }
+      #s3 .edge-image {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        height: min(38vh, 260px);
+        flex: 0 0 auto;
+        margin-top: 14px;
+        border-radius: 16px;
+      }
       .three-col { grid-template-columns: 1fr; gap: 12px; }
       .toc-grid { grid-template-columns: 1fr; }
       .card { padding: 18px 16px; border-radius: 20px; }
@@ -1040,9 +1111,10 @@
         <div class="toc-item"><span class="toc-num">3-4</span><span class="toc-label">Planning Challenge</span></div>
         <div class="toc-item"><span class="toc-num">5-6</span><span class="toc-label">Why This Proposal Exists</span></div>
         <div class="toc-item"><span class="toc-num">7-9</span><span class="toc-label">Project Overview</span></div>
-        <div class="toc-item"><span class="toc-num">10-22</span><span class="toc-label">Concept Renders</span></div>
-        <div class="toc-item"><span class="toc-num">23-33</span><span class="toc-label">Benefits</span></div>
-        <div class="toc-item"><span class="toc-num">34</span><span class="toc-label">Request & Next Steps</span></div>
+        <div class="toc-item"><span class="toc-num">10</span><span class="toc-label">Site Dev</span></div>
+        <div class="toc-item"><span class="toc-num">11-23</span><span class="toc-label">Concept Renders</span></div>
+        <div class="toc-item"><span class="toc-num">24-34</span><span class="toc-label">Benefits</span></div>
+        <div class="toc-item"><span class="toc-num">35</span><span class="toc-label">Request & Next Steps</span></div>
       </div>
         </div>
         <div class="cover-media a3" style="--cover-img:url('Assets/backgrounds/0173a1c94dfaea02171f1ad6e32e6743.jpg');"></div>
@@ -1200,38 +1272,20 @@
           </div>
         </div>
 
-        <div class="col-r" style="display:flex; justify-content:center;">
-          <svg class="doodle" viewBox="0 0 330 310" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="330" height="310" rx="22" fill="#FAFAF5"/>
-            <rect x="28" y="28" width="274" height="254" rx="12" stroke="#C9A96E" stroke-width="2" stroke-dasharray="7 4" fill="#F5EDE0"/>
-            <line x1="292" y1="52" x2="292" y2="38" stroke="#4A9BA5" stroke-width="2"/>
-            <polygon points="288,44 296,44 292,36" fill="#4A9BA5"/>
-            <text x="287" y="64" font-size="10" fill="#4A9BA5" font-family="Georgia">N</text>
-            <rect x="44" y="46" width="120" height="96" rx="7" fill="#7EC8C8" stroke="#4A9BA5" stroke-width="2"/>
-            <text x="104" y="88" font-size="12" fill="#2B7A8C" font-family="Georgia" font-weight="bold" text-anchor="middle">apartmentS</text>
-            <text x="104" y="104" font-size="10" fill="#4A9BA5" font-family="Georgia" text-anchor="middle">Residential</text>
-            <rect x="178" y="46" width="110" height="54" rx="7" fill="#A8D89B" stroke="#5B8C5A" stroke-width="2"/>
-            <text x="233" y="74" font-size="10" fill="#3D6B3D" font-family="Georgia" font-weight="bold" text-anchor="middle">STRIP MALL</text>
-            <text x="233" y="88" font-size="9" fill="#5B8C5A" font-family="Georgia" text-anchor="middle">Local Commercial</text>
-            <rect x="178" y="116" width="110" height="80" rx="7" fill="#C5E8A0" stroke="#7AAF6E" stroke-width="2"/>
-            <text x="233" y="162" font-size="12" fill="#3D6B3D" font-family="Georgia" font-weight="bold" text-anchor="middle">PARK</text>
-            <circle cx="198" cy="142" r="10" fill="#5B8C5A" opacity="0.65"/>
-            <circle cx="268" cy="148" r="9" fill="#7AAF6E" opacity="0.65"/>
-            <circle cx="220" cy="178" r="8" fill="#5B8C5A" opacity="0.55"/>
-            <rect x="44" y="156" width="120" height="16" rx="5" fill="#E8D5A3" stroke="#C9A96E" stroke-width="1"/>
-            <text x="104" y="168" font-size="9" fill="#8B6B47" font-family="Georgia" text-anchor="middle">INTERNAL PATH</text>
-            <rect x="44" y="184" width="120" height="74" rx="7" fill="#F5E6C8" stroke="#C9A96E" stroke-width="2"/>
-            <text x="104" y="220" font-size="10" fill="#8B6B47" font-family="Georgia" font-weight="bold" text-anchor="middle">BUFFER ZONE</text>
-            <text x="104" y="235" font-size="9" fill="#8B6B47" font-family="Georgia" text-anchor="middle">Landscaping &amp; setback</text>
-            <rect x="148" y="268" width="44" height="14" rx="3" fill="#E8D5A3" stroke="#C9A96E" stroke-width="1"/>
-            <text x="170" y="279" font-size="8" fill="#8B6B47" font-family="Georgia" text-anchor="middle">ENTRY ROAD</text>
-          </svg>
-        </div>
-
       </div>
+    </div>
+    <div class="edge-image">
+      <img src="Assets/axo.jpg" alt="Project overview image">
     </div>
   </div>
 
+
+  <!-- ------------------------------------------
+       SLIDE 10 - SITE DEV FULLSCREEN
+  ------------------------------------------ -->
+  <div class="slide render-slide" id="site-dev">
+    <img src="Assets/Site Dev.jpg" alt="Site Dev">
+  </div>
 
   <!-- ------------------------------------------
        CONCEPT RENDERS COVER
