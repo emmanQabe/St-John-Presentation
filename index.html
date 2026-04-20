@@ -222,6 +222,24 @@
       background-size: cover;
       background-position: var(--cover-pos, center);
     }
+    .render-slide {
+      padding: 0;
+      background: #10130d;
+      align-items: stretch;
+      justify-content: stretch;
+    }
+    .render-slide::before,
+    .render-slide::after {
+      display: none;
+    }
+    .render-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      background: transparent;
+    }
     .bg-ocean::after,
     .bg-sand::after,
     .bg-forest::after,
@@ -699,6 +717,11 @@
         padding: 32px 20px calc(102px + env(safe-area-inset-bottom));
         align-items: flex-start;
       }
+      .render-slide {
+        padding: 0 !important;
+        align-items: stretch !important;
+        justify-content: stretch !important;
+      }
       .eyebrow { font-size: 9px; letter-spacing: 2.2px; margin-bottom: 10px; }
       #s4 .inner {
         margin-top: 6px;
@@ -1016,9 +1039,10 @@
         <div class="toc-item"><span class="toc-num">2</span><span class="toc-label">Table of Contents</span></div>
         <div class="toc-item"><span class="toc-num">3-4</span><span class="toc-label">Planning Challenge</span></div>
         <div class="toc-item"><span class="toc-num">5-6</span><span class="toc-label">Why This Proposal Exists</span></div>
-        <div class="toc-item"><span class="toc-num">7-8</span><span class="toc-label">Project Overview</span></div>
-        <div class="toc-item"><span class="toc-num">9-19</span><span class="toc-label">Benefits</span></div>
-        <div class="toc-item"><span class="toc-num">20</span><span class="toc-label">Request & Next Steps</span></div>
+        <div class="toc-item"><span class="toc-num">7-9</span><span class="toc-label">Project Overview</span></div>
+        <div class="toc-item"><span class="toc-num">10-22</span><span class="toc-label">Concept Renders</span></div>
+        <div class="toc-item"><span class="toc-num">23-33</span><span class="toc-label">Benefits</span></div>
+        <div class="toc-item"><span class="toc-num">34</span><span class="toc-label">Request & Next Steps</span></div>
       </div>
         </div>
         <div class="cover-media a3" style="--cover-img:url('Assets/backgrounds/0173a1c94dfaea02171f1ad6e32e6743.jpg');"></div>
@@ -1209,6 +1233,63 @@
   </div>
 
 
+  <!-- ------------------------------------------
+       CONCEPT RENDERS COVER
+  ------------------------------------------ -->
+  <div class="slide bg-wood section-cover" id="cover-renders">
+    <div class="inner">
+      <div class="cover-layout">
+        <div>
+          <div class="section-kicker a1">Section II</div>
+          <h1 class="a2" style="margin-bottom:14px;">Concept Renders</h1>
+          <p class="lead a3" style="max-width:640px;">A full visual walkthrough of the proposed site concept, with one rendering per slide.</p>
+        </div>
+        <div class="cover-media a4" style="--cover-img:url('Assets/Project Renders/DJI_0063-Recovered.png'); --cover-pos:center;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ------------------------------------------
+       CONCEPT RENDERS - ONE IMAGE PER SLIDE
+  ------------------------------------------ -->
+  <div class="slide render-slide" id="render-01">
+    <img src="Assets/Project Renders/Image(44).png" alt="Concept render 01">
+  </div>
+  <div class="slide render-slide" id="render-02">
+    <img src="Assets/Project Renders/Image 45.png" alt="Concept render 02">
+  </div>
+  <div class="slide render-slide" id="render-03">
+    <img src="Assets/Project Renders/image 46.png" alt="Concept render 03">
+  </div>
+  <div class="slide render-slide" id="render-04">
+    <img src="Assets/Project Renders/Image 47.png" alt="Concept render 04">
+  </div>
+  <div class="slide render-slide" id="render-05">
+    <img src="Assets/Project Renders/image 48.png" alt="Concept render 05">
+  </div>
+  <div class="slide render-slide" id="render-06">
+    <img src="Assets/Project Renders/Image 49.png" alt="Concept render 06">
+  </div>
+  <div class="slide render-slide" id="render-07">
+    <img src="Assets/Project Renders/Image 50.png" alt="Concept render 07">
+  </div>
+  <div class="slide render-slide" id="render-08">
+    <img src="Assets/Project Renders/image 51.png" alt="Concept render 08">
+  </div>
+  <div class="slide render-slide" id="render-09">
+    <img src="Assets/Project Renders/image 52.png" alt="Concept render 09">
+  </div>
+  <div class="slide render-slide" id="render-10">
+    <img src="Assets/Project Renders/image 53.png" alt="Concept render 10">
+  </div>
+  <div class="slide render-slide" id="render-11">
+    <img src="Assets/Project Renders/Image 54.png" alt="Concept render 11">
+  </div>
+  <div class="slide render-slide" id="render-12">
+    <img src="Assets/Project Renders/DJI_0063-Recovered.png" alt="Concept render 12">
+  </div>
+
+
   <!-- 
        SLIDE 5 - A MORE BALANCED GROWTH PATTERN
    -->
@@ -1216,7 +1297,7 @@
     <div class="inner" style="text-align:center; max-width:1120px;">
       <div class="cover-layout">
         <div>
-      <div class="section-kicker a1">Section II</div>
+      <div class="section-kicker a1">Section III</div>
       <h1 class="a2" style="margin-bottom:14px;">Benefits</h1>
       <p class="lead a3">How this proposal directly improves housing access, local commerce, economic participation, and everyday quality of life for year-round St. John residents.</p>
       <div class="a4">
@@ -1558,7 +1639,7 @@
 <!-- ─── NAVIGATION ─── -->
 <div class="nav">
   <button class="nav-btn" id="btnPrev" type="button">&#8592;</button>
-  <span class="slide-counter" id="ctr">1 / 15</span>
+  <span class="slide-counter" id="ctr">1 / 34</span>
   <button class="nav-btn" id="btnNext" type="button">&#8594;</button>
   <button class="nav-btn nav-install" id="btnInstall" type="button" aria-label="Install app" title="Install app">Install</button>
   <button class="nav-btn nav-fs" id="btnFs" type="button" aria-label="Enter fullscreen" title="Enter fullscreen">⛶</button>
