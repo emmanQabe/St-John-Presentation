@@ -204,6 +204,80 @@
     }
     .section-cover .doodle { display: none; }
     .section-cover::after { display: none; }
+    #cover-s3 {
+      background:
+        url("Assets/project overview.png") center/cover no-repeat;
+    }
+    #cover-renders {
+      background:
+        url("Assets/Front.png") center/cover no-repeat;
+    }
+    #cover-s3::before,
+    #cover-renders::before {
+      opacity: 0.08;
+    }
+    #cover-s3 .cover-layout,
+    #cover-renders .cover-layout {
+      grid-template-columns: 1fr;
+      min-height: 100%;
+      align-items: start;
+    }
+    #cover-s3 .cover-media,
+    #cover-renders .cover-media {
+      display: none;
+    }
+    #cover-s3 .title-card,
+    #cover-renders .title-card {
+      position: absolute;
+      top: 18px;
+      left: 22px;
+      z-index: 3;
+      display: inline-block;
+      width: fit-content;
+      max-width: calc(100% - 44px);
+      padding: 14px 16px 12px;
+      border-radius: 24px;
+      background: rgba(245, 243, 237, 0.54);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 18px 42px rgba(16, 20, 14, 0.22);
+      backdrop-filter: blur(14px) saturate(1.2);
+      -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    }
+    @media (min-width: 901px) {
+      #cover-s3 .inner,
+      #cover-renders .inner {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+      #cover-s3 .cover-layout,
+      #cover-renders .cover-layout {
+        width: 100%;
+        height: 100%;
+      }
+      #cover-s3 .title-card,
+      #cover-renders .title-card {
+        transform: scale(0.82);
+        transform-origin: top left;
+      }
+      #cover-s3 .title-card .section-kicker,
+      #cover-renders .title-card .section-kicker {
+        font-size: 9px;
+        letter-spacing: 2.4px;
+        margin-bottom: 10px;
+        color: #111111 !important;
+      }
+      #cover-s3 .title-card h1,
+      #cover-renders .title-card h1 {
+        font-size: clamp(28px, 3.1vw, 44px);
+        line-height: 0.92;
+      }
+    }
     .cover-layout {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -993,6 +1067,23 @@
         font-size: 14px !important;
         line-height: 1.45 !important;
       }
+      #cover-s3 .title-card,
+      #cover-renders .title-card {
+        top: 12px;
+        left: 12px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: max-content;
+        max-width: calc(100vw - 24px);
+        transform: scale(0.68);
+        transform-origin: top left;
+      }
+      #cover-s3 .title-card h1,
+      #cover-renders .title-card h1 {
+        display: inline-block;
+        width: max-content;
+      }
       .doodle { max-width: 320px; }
       .slide::after { width: 260px; height: 260px; top: -70px; right: -70px; }
       .dots { display: none; }
@@ -1095,7 +1186,7 @@
   </div>
 
   <!-- 
-       SLIDE 2 - THE PLANNING CHALLENGE
+       SLIDE 2 - TABLE OF CONTENTS
    -->
   <div class="slide bg-cream section-cover" id="toc">
     <div class="inner">
@@ -1110,11 +1201,10 @@
         <div class="toc-item"><span class="toc-num">2</span><span class="toc-label">Table of Contents</span></div>
         <div class="toc-item"><span class="toc-num">3-4</span><span class="toc-label">Planning Challenge</span></div>
         <div class="toc-item"><span class="toc-num">5-6</span><span class="toc-label">Why This Proposal Exists</span></div>
-        <div class="toc-item"><span class="toc-num">7-9</span><span class="toc-label">Project Overview</span></div>
-        <div class="toc-item"><span class="toc-num">10</span><span class="toc-label">Site Dev</span></div>
-        <div class="toc-item"><span class="toc-num">11-23</span><span class="toc-label">Concept Renders</span></div>
-        <div class="toc-item"><span class="toc-num">24-34</span><span class="toc-label">Benefits</span></div>
-        <div class="toc-item"><span class="toc-num">35</span><span class="toc-label">Request & Next Steps</span></div>
+        <div class="toc-item"><span class="toc-num">7-11</span><span class="toc-label">Project Overview</span></div>
+        <div class="toc-item"><span class="toc-num">12-25</span><span class="toc-label">Concept Renders</span></div>
+        <div class="toc-item"><span class="toc-num">26-37</span><span class="toc-label">Benefits</span></div>
+        <div class="toc-item"><span class="toc-num">38</span><span class="toc-label">Request & Next Steps</span></div>
       </div>
         </div>
         <div class="cover-media a3" style="--cover-img:url('Assets/backgrounds/0173a1c94dfaea02171f1ad6e32e6743.jpg');"></div>
@@ -1122,6 +1212,9 @@
     </div>
   </div>
 
+  <!-- 
+       SLIDE 3 - PLANNING CHALLENGE COVER
+   -->
   <div class="slide bg-sand section-cover" id="cover-s1">
     <div class="inner">
       <div class="cover-layout">
@@ -1134,6 +1227,9 @@
     </div>
   </div>
 
+  <!-- 
+       SLIDE 4 - THE PLANNING CHALLENGE
+   -->
   <div class="slide bg-sand" id="s1">
     <div class="inner">
       <div class="two-col">
@@ -1159,11 +1255,14 @@
     </div>
   </div>
 
+  <!-- 
+       SLIDE 5 - WHY THIS PROPOSAL EXISTS COVER
+   -->
   <div class="slide bg-forest section-cover" id="cover-s2">
     <div class="inner">
       <div class="cover-layout">
         <div>
-          <div class="section-kicker a1">Section I</div>
+          <div class="section-kicker a1">Section II</div>
           <h1 class="a2" style="margin-bottom:14px;">Why This Proposal Exists</h1>
         </div>
         <div class="cover-media a4" style="--cover-img:url('Assets/backgrounds/3934d24165c88ff27bed2338f82c9558.jpg');"></div>
@@ -1172,7 +1271,7 @@
   </div>
 
   <!-- 
-       SLIDE 3 - WHY THIS PROPOSAL EXISTS
+       SLIDE 6 - WHY THIS PROPOSAL EXISTS
    -->
   <div class="slide bg-forest" id="s2">
     <div class="inner">
@@ -1204,23 +1303,21 @@
     </div>
   </div>
 
+  <!-- 
+       SLIDE 7 - PROJECT OVERVIEW COVER
+   -->
   <div class="slide bg-cream section-cover" id="cover-s3">
-    <div class="inner">
-      <div class="cover-layout">
-        <div>
-          <div class="section-kicker a1">Section I</div>
-          <h1 class="a2" style="margin-bottom:14px;">Project Overview</h1>
-        </div>
-        <div class="cover-media a4" style="--cover-img:url('Assets/backgrounds/7ae1bea03ee622f4509ac9a88971dc4e.jpg');"></div>
-      </div>
+    <div class="title-card">
+      <div class="section-kicker a1">Section III</div>
+      <h1 class="a2" style="margin-bottom:14px;">Project Overview</h1>
     </div>
   </div>
 
   <!-- ------------------------------------------
-       SLIDE 4b - LOCATION MAP
+       SLIDE 8 - LOCATION MAP
   ------------------------------------------ -->
   <div class="slide" id="smap" style="padding:0; align-items:stretch; justify-content:stretch; --map-marker-left:16.5%; --map-marker-top:60%; --site-marker-left:32.5%; --site-marker-top:45%;">
-    <div id="smap-canvas" style="position:absolute; inset:0; background:url('Assets/map.png') var(--map-bg-x) var(--map-bg-y)/cover no-repeat; z-index:0;"></div>
+    <div id="smap-canvas" style="position:absolute; inset:0; background-position:var(--map-bg-x) var(--map-bg-y); background-size:cover; background-repeat:no-repeat; z-index:0;"></div>
     <div id="marker-cruz" class="map-marker" data-x-var="--map-marker-left" data-y-var="--map-marker-top" style="position:absolute; z-index:2; transform:translate(-50%,-100%);">
       <div style="display:flex; flex-direction:column; align-items:center; gap:0;">
         <div style="background:rgba(47,58,34,0.92); color:#F5F3ED; font-family:'Manrope',sans-serif; font-size:11px; font-weight:600; letter-spacing:1.6px; text-transform:uppercase; padding:6px 12px; border-radius:8px; white-space:nowrap; box-shadow:0 4px 14px rgba(0,0,0,0.28);">Cruz Bay</div>
@@ -1241,7 +1338,7 @@
   </div>
 
   <!-- ------------------------------------------
-       SLIDE 4 - PROJECT OVERVIEW
+       SLIDE 9 - PROJECT OVERVIEW
   ------------------------------------------ -->
   <div class="slide bg-cream" id="s3">
     <div class="inner">
@@ -1278,80 +1375,121 @@
       <img src="Assets/axo.jpg" alt="Project overview image">
     </div>
   </div>
-
+  <!-- ------------------------------------------
+       SLIDE 10 - FULLSCREEN SITE PLAN
+  ------------------------------------------ -->
+  <div class="slide render-slide" id="site-plan">
+    <img src="Assets/rendered site plan.png" alt="Rendered site plan">
+  </div>
 
   <!-- ------------------------------------------
-       SLIDE 10 - SITE DEV FULLSCREEN
+       SLIDE 11 - SITE DEV FULLSCREEN
   ------------------------------------------ -->
   <div class="slide render-slide" id="site-dev">
     <img src="Assets/Site Dev.jpg" alt="Site Dev">
   </div>
 
   <!-- ------------------------------------------
-       CONCEPT RENDERS COVER
+       SLIDE 12 - CONCEPT RENDERS COVER
   ------------------------------------------ -->
   <div class="slide bg-wood section-cover" id="cover-renders">
-    <div class="inner">
-      <div class="cover-layout">
-        <div>
-          <div class="section-kicker a1">Section II</div>
-          <h1 class="a2" style="margin-bottom:14px;">Concept Renders</h1>
-          <p class="lead a3" style="max-width:640px;">A full visual walkthrough of the proposed site concept, with one rendering per slide.</p>
-        </div>
-        <div class="cover-media a4" style="--cover-img:url('Assets/Project Renders/DJI_0063-Recovered.png'); --cover-pos:center;"></div>
-      </div>
+    <div class="title-card">
+      <div class="section-kicker a1">Section IV</div>
+      <h1 class="a2" style="margin-bottom:14px;">Concept Renders</h1>
     </div>
   </div>
 
   <!-- ------------------------------------------
-       CONCEPT RENDERS - ONE IMAGE PER SLIDE
+       SLIDE 13 - CONCEPT RENDER 01
   ------------------------------------------ -->
   <div class="slide render-slide" id="render-01">
     <img src="Assets/Project Renders/Image(44).png" alt="Concept render 01">
   </div>
+  <!-- ------------------------------------------
+       SLIDE 14 - CONCEPT RENDER 02
+  ------------------------------------------ -->
   <div class="slide render-slide" id="render-02">
     <img src="Assets/Project Renders/Image 45.png" alt="Concept render 02">
   </div>
+  <!-- ------------------------------------------
+       SLIDE 15 - CONCEPT RENDER 03
+  ------------------------------------------ -->
   <div class="slide render-slide" id="render-03">
     <img src="Assets/Project Renders/image 46.png" alt="Concept render 03">
   </div>
+  <!-- ------------------------------------------
+       SLIDE 16 - CONCEPT RENDER 04
+  ------------------------------------------ -->
   <div class="slide render-slide" id="render-04">
     <img src="Assets/Project Renders/Image 47.png" alt="Concept render 04">
   </div>
+  <!-- ------------------------------------------
+       SLIDE 17 - CONCEPT RENDER 05
+  ------------------------------------------ -->
   <div class="slide render-slide" id="render-05">
     <img src="Assets/Project Renders/image 48.png" alt="Concept render 05">
   </div>
+  <!-- ------------------------------------------
+       SLIDE 18 - CONCEPT RENDER 06
+  ------------------------------------------ -->
   <div class="slide render-slide" id="render-06">
     <img src="Assets/Project Renders/Image 49.png" alt="Concept render 06">
   </div>
-  <div class="slide render-slide" id="render-07">
-    <img src="Assets/Project Renders/Image 50.png" alt="Concept render 07">
-  </div>
-  <div class="slide render-slide" id="render-08">
-    <img src="Assets/Project Renders/image 51.png" alt="Concept render 08">
-  </div>
+
+  <!-- ------------------------------------------
+       SLIDE 19 - CONCEPT RENDER 07
+  ------------------------------------------ -->
   <div class="slide render-slide" id="render-09">
     <img src="Assets/Project Renders/image 52.png" alt="Concept render 09">
   </div>
-  <div class="slide render-slide" id="render-10">
-    <img src="Assets/Project Renders/image 53.png" alt="Concept render 10">
-  </div>
-  <div class="slide render-slide" id="render-11">
-    <img src="Assets/Project Renders/Image 54.png" alt="Concept render 11">
-  </div>
+  <!-- ------------------------------------------
+       SLIDE 20 - CONCEPT RENDER 08
+  ------------------------------------------ -->
   <div class="slide render-slide" id="render-12">
-    <img src="Assets/Project Renders/DJI_0063-Recovered.png" alt="Concept render 12">
+    <img src="Assets/Project Renders/green space.jpeg" alt="Green space concept render">
   </div>
+  <!-- ------------------------------------------
+       SLIDE 21 - CONCEPT RENDER 09
+  ------------------------------------------ -->
+  <div class="slide render-slide" id="render-13">
+    <img src="Assets/Project Renders/green space 2.jpeg" alt="Green space concept render 2">
+  </div>
+  <!-- ------------------------------------------
+       SLIDE 22 - CONCEPT RENDER 10
+  ------------------------------------------ -->
+    <div class="slide render-slide" id="render-13">
+    <img src="Assets/Project Renders/D5 Lite 20260424_083126.png" alt="Green space concept render 2">
+  </div>
+  <!-- ------------------------------------------
+       SLIDE 23 - CONCEPT RENDER 11
+  ------------------------------------------ -->
+ <div class="slide render-slide" id="render-13">
+    <img src="Assets/Project Renders/D5 Lite 20260424_081709.png" alt="Green space concept render 2">
+  </div>
+
+  <!-- ------------------------------------------
+       SLIDE 24 - CONCEPT RENDER 12
+  ------------------------------------------ -->
+  <div class="slide render-slide" id="render-13">
+    <img src="Assets/Project Renders/D5 Lite 20260424_074115.png" alt="Green space concept render 2">
+  </div>
+  <!-- ------------------------------------------
+       SLIDE 25 - CONCEPT RENDER 13
+  ------------------------------------------ -->
+ <div class="slide render-slide" id="render-13">
+    <img src="Assets/Project Renders/D5 Lite 20260423_172857.png" alt="Green space concept render 2">
+  </div>
+
 
 
   <!-- 
-       SLIDE 5 - A MORE BALANCED GROWTH PATTERN
+       SLIDE 26 - BENEFITS
    -->
   <div class="slide bg-forest section-cover" id="benefits">
     <div class="inner" style="text-align:center; max-width:1120px;">
       <div class="cover-layout">
         <div>
-      <div class="section-kicker a1">Section III</div>
+      <div class="section-kicker a1">Section V</div>
       <h1 class="a2" style="margin-bottom:14px;">Benefits</h1>
       <p class="lead a3">How this proposal directly improves housing access, local commerce, economic participation, and everyday quality of life for year-round St. John residents.</p>
       <div class="a4">
@@ -1364,6 +1502,7 @@
         <div style="border:1px solid rgba(78,97,50,0.24); border-radius:14px; background:rgba(255,255,255,0.66); padding:8px 12px; text-align:left;"><div style="font-family:'Cormorant Garamond',serif; font-size:20px; color:#4E6132; line-height:1;">07</div><div style="font-size:11px; color:#2f3828; margin-top:3px;">Cultural + Environmental Stewardship</div></div>
         <div style="border:1px solid rgba(78,97,50,0.24); border-radius:14px; background:rgba(255,255,255,0.66); padding:8px 12px; text-align:left;"><div style="font-family:'Cormorant Garamond',serif; font-size:20px; color:#4E6132; line-height:1;">08</div><div style="font-size:11px; color:#2f3828; margin-top:3px;">Neighborhood-Scale Character</div></div>
         <div style="border:1px solid rgba(78,97,50,0.24); border-radius:14px; background:rgba(255,255,255,0.66); padding:8px 12px; text-align:left;"><div style="font-family:'Cormorant Garamond',serif; font-size:20px; color:#4E6132; line-height:1;">09</div><div style="font-size:11px; color:#2f3828; margin-top:3px;">Public Greenspace & Livability</div></div>
+        <div style="border:1px solid rgba(78,97,50,0.24); border-radius:14px; background:rgba(255,255,255,0.66); padding:8px 12px; text-align:left;"><div style="font-family:'Cormorant Garamond',serif; font-size:20px; color:#4E6132; line-height:1;">10</div><div style="font-size:11px; color:#2f3828; margin-top:3px;">Minimal Road Impact</div></div>
       </div>
         </div>
         <div class="cover-media a5" style="--cover-img:url('Assets/backgrounds/4e553f257f71bab45faed7b3d3541fd3.jpg'); --cover-pos:center 78%; --cover-pos-mobile:center 92%;"></div>
@@ -1371,6 +1510,9 @@
     </div>
   </div>
 
+  <!-- 
+       SLIDE 27 - A MORE BALANCED GROWTH PATTERN
+   -->
   <div class="slide bg-ocean" id="s4">
     <div class="inner">
       <div class="eyebrow a1">Growth Strategy</div>
@@ -1397,7 +1539,7 @@
   </div>
 
   <!-- 
-       SLIDE 6 - HOUSING AND OWNERSHIP OPPORTUNITY
+       SLIDE 28 - HOUSING AND OWNERSHIP OPPORTUNITY
    -->
   <div class="slide bg-sand" id="s5">
     <div class="inner">
@@ -1424,7 +1566,7 @@
   </div>
 
   <!-- 
-       SLIDE 7 - LOCAL-SERVING COMMERCIAL USES
+       SLIDE 29 - LOCAL-SERVING COMMERCIAL USES
    -->
   <div class="slide bg-forest" id="s6">
     <div class="inner">
@@ -1452,7 +1594,7 @@
   </div>
 
   <!-- ------------------------------------------
-       SLIDE 8 - BROADER LOCAL ECONOMIC PARTICIPATION
+       SLIDE 30 - BROADER LOCAL ECONOMIC PARTICIPATION
   ------------------------------------------ -->
   <div class="slide bg-wood" id="s7">
     <div class="inner">
@@ -1481,7 +1623,7 @@
   </div>
 
   <!-- ------------------------------------------
-       SLIDE 9 - SUPPORTING YEAR-ROUND LOCAL LIFE
+       SLIDE 31 - SUPPORTING YEAR-ROUND LOCAL LIFE
   ------------------------------------------ -->
   <div class="slide bg-ocean" id="s8">
     <div class="inner">
@@ -1513,8 +1655,10 @@
     </div>
   </div>
 
+
+
   <!-- 
-       SLIDE 10 - A PRACTICAL ALTERNATIVE
+       SLIDE 32 - A PRACTICAL ALTERNATIVE
    -->
   <div class="slide bg-sand" id="s9">
     <div class="inner">
@@ -1542,7 +1686,7 @@
   </div>
 
   <!-- 
-       SLIDE 11 - CULTURALLY RESPECTFUL + ENV CONSCIOUS
+       SLIDE 33 - CULTURALLY RESPECTFUL + ENV CONSCIOUS
    -->
   <div class="slide bg-forest" id="s10">
     <div class="inner">
@@ -1575,7 +1719,7 @@
   </div>
 
   <!-- 
-       SLIDE 12 - NEIGHBORHOOD-SCALE CHARACTER
+       SLIDE 34 - NEIGHBORHOOD-SCALE CHARACTER
    -->
   <div class="slide bg-cream" id="s11">
     <div class="inner">
@@ -1602,7 +1746,7 @@
   </div>
 
   <!-- ══════════════════════════════════════════
-       SLIDE 13 · PUBLIC GREENSPACE AND LIVABILITY
+       SLIDE 35 · PUBLIC GREENSPACE AND LIVABILITY
   ══════════════════════════════════════════ -->
   <div class="slide bg-forest" id="s12">
     <div class="inner">
@@ -1631,7 +1775,34 @@
   </div>
 
   <!-- ══════════════════════════════════════════
-       SLIDE 14 · WHY ZONING FLEXIBILITY IS JUSTIFIED
+       SLIDE 36 · MINIMAL ROAD IMPACT
+  ══════════════════════════════════════════ -->
+  <div class="slide bg-sand" id="s12b">
+    <div class="inner">
+      <div class="two-col">
+
+        <div class="col-l">
+          <div class="eyebrow a1">Mobility + Access</div>
+          <div class="rule a2"></div>
+          <h2 class="a3">10 · Minimal Road Impact<br><span class="em">by Design</span></h2>
+          <p class="lead a4">The project is positioned to add neighborhood-serving value without creating meaningful pressure on the island's underutilized travel corridors.</p>
+          <ul class="pts a5">
+            <li><span class="dot"></span>Centerline Road already operates at a high level of service and has the capacity to absorb the expected traffic generated by the project.</li>
+            <li><span class="dot"></span>Ingress and egress are intentionally placed on a secondary road, avoiding direct access conflicts along Centerline Road.</li>
+            <li><span class="dot"></span>By bringing basic goods and services closer to nearby households, the project can reduce average daily trips into Cruz Bay for everyday needs.</li>
+          </ul>
+        </div>
+
+        <div class="col-r" style="display:flex; justify-content:center; align-items:center;">
+          <img class="doodle" src="Assets/Illustrations/traffic.jpeg" alt="Traffic conditions illustration">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 37 · WHY ZONING FLEXIBILITY IS JUSTIFIED
   ══════════════════════════════════════════ -->
   <div class="slide bg-wood" id="s13">
     <div class="inner">
@@ -1653,7 +1824,7 @@
   </div>
 
   <!-- ══════════════════════════════════════════
-       SLIDE 15 · REQUEST AND NEXT STEPS
+       SLIDE 38 · REQUEST AND NEXT STEPS
   ══════════════════════════════════════════ -->
   <div class="slide bg-ocean" id="s14">
     <div class="inner" style="text-align:center; max-width:960px; margin:0 auto;">
@@ -1693,7 +1864,7 @@
 <!-- ─── NAVIGATION ─── -->
 <div class="nav">
   <button class="nav-btn" id="btnPrev" type="button">&#8592;</button>
-  <span class="slide-counter" id="ctr">1 / 34</span>
+  <span class="slide-counter" id="ctr">1 / 37</span>
   <button class="nav-btn" id="btnNext" type="button">&#8594;</button>
   <button class="nav-btn nav-install" id="btnInstall" type="button" aria-label="Install app" title="Install app">Install</button>
   <button class="nav-btn nav-fs" id="btnFs" type="button" aria-label="Enter fullscreen" title="Enter fullscreen">⛶</button>
@@ -1743,6 +1914,10 @@
 
   const mapImg = new Image();
   mapImg.src = 'Assets/map.png';
+
+  if (mapCanvas) {
+    mapCanvas.style.backgroundImage = `url("${mapImg.src}")`;
+  }
 
   function fullscreenSupported() {
     const el = document.documentElement;
