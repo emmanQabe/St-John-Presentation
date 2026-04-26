@@ -13,6 +13,11 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
+      --deck-ratio: 1.288888889;
+      --deck-max-width: 1760px;
+      --frame-pad-x: 58px;
+      --frame-pad-y: 74px;
+      --deck-width: min(var(--deck-max-width), calc(100vw - var(--frame-pad-x)), calc((100vh - var(--frame-pad-y)) * var(--deck-ratio)));
       --sand-light: #F7F0E0;
       --sand: #E8D5A3;
       --sand-dark: #C9A96E;
@@ -57,7 +62,7 @@
       left: 50%;
       transform: translateX(-50%);
       height: 3px;
-      width: min(1160px, calc(100vw - 76px));
+      width: min(calc(var(--deck-width) - 92px), calc(100vw - 76px));
       border-radius: 999px;
       background: rgba(255,255,255,0.35);
       transition: none;
@@ -77,8 +82,10 @@
     /*  DECK  */
     .deck {
       position: relative;
-      width: min(1160px, calc(100vw - 58px));
-      height: min(900px, calc(100vh - 74px));
+      width: var(--deck-width);
+      height: auto;
+      max-height: calc(100vh - var(--frame-pad-y));
+      aspect-ratio: 1160 / 900;
       border-radius: 34px;
       overflow: hidden;
       background: var(--lux-cream);
@@ -715,7 +722,7 @@
       text-align: center;
     }
     .nav-fs {
-      display: none;
+      display: flex;
       font-size: 18px;
       line-height: 1;
     }
@@ -794,7 +801,7 @@
     /* Slide dots */
     .dots {
       position: fixed;
-      right: 22px;
+      right: max(22px, calc((100vw - var(--deck-width)) / 2 + 18px));
       top: 50%;
       transform: translateY(-50%);
       display: flex;
@@ -820,6 +827,10 @@
     .sdot.on { opacity: 1; background: #4E6132; transform: scale(1.35); }
 
     @media (max-width: 900px) {
+      :root {
+        --frame-pad-x: 18px;
+        --frame-pad-y: 18px;
+      }
       .deck {
         width: calc(100vw - 18px);
         height: calc(100vh - 18px);
