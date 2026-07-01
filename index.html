@@ -13,10 +13,10 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --deck-ratio: 1.288888889;
-      --deck-max-width: 1760px;
-      --frame-pad-x: 58px;
-      --frame-pad-y: 74px;
+      --deck-ratio: 1.777777778;
+      --deck-max-width: 1920px;
+      --frame-pad-x: 20px;
+      --frame-pad-y: 26px;
       --deck-width: min(var(--deck-max-width), calc(100vw - var(--frame-pad-x)), calc((100vh - var(--frame-pad-y)) * var(--deck-ratio)));
       --sand-light: #F7F0E0;
       --sand: #E8D5A3;
@@ -85,7 +85,7 @@
       width: var(--deck-width);
       height: auto;
       max-height: calc(100vh - var(--frame-pad-y));
-      aspect-ratio: 1160 / 900;
+      aspect-ratio: 16 / 9;
       border-radius: 34px;
       overflow: hidden;
       background: var(--lux-cream);
@@ -102,7 +102,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 56px 80px;
+      padding: 42px 32px;
       overflow: hidden;
       opacity: 0;
       pointer-events: none;
@@ -274,7 +274,7 @@
       }
       #cover-s3 .title-card .section-kicker,
       #cover-renders .title-card .section-kicker {
-        font-size: 9px;
+        font-size: 12px;
         letter-spacing: 2.4px;
         margin-bottom: 10px;
         color: #111111 !important;
@@ -410,8 +410,9 @@
 
     /*  INNER CONTENT  */
     .inner {
-      max-width: 1160px;
+      max-width: none;
       width: 100%;
+      margin: 0 auto;
       position: relative;
       z-index: 2;
     }
@@ -478,7 +479,7 @@
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 56px;
+      gap: 28px;
       align-items: center;
     }
     .three-col {
@@ -516,7 +517,7 @@
       letter-spacing: 0.2px;
     }
     .section-kicker {
-      font-size: 12px;
+      font-size: 16px;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: #5b6d44;
@@ -595,25 +596,29 @@
     }
     #s3 .inner {
       height: 100%;
-      width: 50%;
+      width: 44%;
       max-width: none;
-      padding: 56px 44px 56px 80px;
+      padding: 42px 18px 42px 32px;
       display: flex;
       align-items: center;
+      justify-content: flex-start;
+      margin: 0;
     }
     #s3 .two-col {
       display: block;
     }
     #s3 .col-l {
+      width: 100%;
       padding: 0;
       align-self: auto;
+      max-width: 100%;
     }
     #s3 .edge-image {
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
-      width: 50%;
+      width: 56%;
       overflow: hidden;
       z-index: 1;
     }
@@ -624,9 +629,52 @@
       object-fit: cover;
       object-position: center;
     }
+    #s3 .lead {
+      max-width: 100%;
+    }
     #smap {
       --map-bg-x: 50%;
       --map-bg-y: 50%;
+    }
+    #adrian-geste .inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      text-align: center;
+      display: grid;
+      place-content: center;
+      gap: 18px;
+      min-height: 100%;
+      padding: clamp(28px, 5vh, 56px) clamp(26px, 5vw, 64px);
+    }
+    #adrian-geste h2 {
+      margin: 0;
+      font-size: clamp(36px, 5.2vw, 68px);
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      color: #2f3a22;
+      text-wrap: balance;
+    }
+    #adrian-geste .geste-def {
+      margin: 0 auto;
+      max-width: 980px;
+      font-size: clamp(18px, 2vw, 28px);
+      line-height: 1.7;
+      color: #46543a;
+      font-style: italic;
+      text-wrap: pretty;
+    }
+    #adrian-geste .geste-def::before {
+      content: "- ";
+    }
+    #s13 .pts li {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      column-gap: 12px;
+      align-items: start;
+    }
+    #s13 .pts li .claim {
+      min-width: 0;
+      text-wrap: pretty;
     }
     #benefits .cover-layout {
       grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
@@ -689,7 +737,7 @@
       position: fixed;
       bottom: max(18px, env(safe-area-inset-bottom));
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, calc(100% + 22px));
       display: flex;
       align-items: center;
       gap: 14px;
@@ -699,6 +747,24 @@
       padding: 8px 12px;
       border-radius: 999px;
       backdrop-filter: blur(8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 220ms ease;
+    }
+    .nav-peek {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: max(20px, calc(16px + env(safe-area-inset-bottom)));
+      z-index: 219;
+      background: transparent;
+    }
+    .nav-peek:hover + .nav,
+    .nav:hover {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0);
     }
     .nav-btn {
       width: 42px; height: 42px;
@@ -715,6 +781,14 @@
       user-select: none;
     }
     .nav-btn:hover { background: #4E6132; color: white; }
+    .nav-btn:disabled {
+      opacity: 0.48;
+      cursor: default;
+    }
+    .nav-btn:disabled:hover {
+      background: rgba(255,255,255,0.92);
+      color: #4E6132;
+    }
     .slide-counter {
       font-size: 12px;
       color: #586348;
@@ -724,6 +798,11 @@
     .nav-fs {
       display: flex;
       font-size: 18px;
+      line-height: 1;
+    }
+    .nav-text {
+      font-size: 22px;
+      font-weight: 600;
       line-height: 1;
     }
     .nav-install {
@@ -1103,6 +1182,14 @@
       .nav-install { display: flex; min-width: 84px; height: 44px; }
       .nav-fs { display: flex; }
     }
+    @media (hover: none), (pointer: coarse) {
+      .nav-peek { display: none; }
+      .nav {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, 0);
+      }
+    }
   </style>
 </head>
 <body>
@@ -1112,9 +1199,28 @@
 <div class="deck" id="deck">
 
   <!-- 
-       SLIDE 1 - COVER
+       SLIDE 1 - ADRIAN HISTORY
    -->
-  <div class="slide bg-ocean active hero-photo" id="s0">
+  <div class="slide render-slide active" id="adrian-history">
+    <img src="Assets/Adrian's History.png" alt="Adrian History">
+  </div>
+
+  <!-- 
+       SLIDE 2 - ADRIAN GESTE
+   -->
+  <div class="slide bg-cream" id="adrian-geste">
+    <div class="inner">
+      <h2 class="a2">Adrian’s Geste</h2>
+      <p class="geste-def a3">
+        Geste is a “French term borrowed into English meaning a "beautiful gesture"—often an action of noble or chivalrous intent that is done to protect or honor someone else.”
+      </p>
+    </div>
+  </div>
+
+  <!-- 
+       SLIDE 3 - COVER
+   -->
+  <div class="slide bg-ocean hero-photo" id="s0">
     <div class="inner">
       <div class="two-col">
 
@@ -1254,7 +1360,6 @@
             <li><span class="dot"></span>Cruz Bay absorbs disproportionate development pressure</li>
             <li><span class="dot"></span>Locals face limited housing ownership and commercial opportunity</li>
             <li><span class="dot"></span>The same establishments that cater to tourists may not serve local needs</li>
-            <li><span class="dot"></span>Exclusively residential zoning blocks thoughtful mixed-use solutions</li>
           </ul>
         </div>
 
@@ -1823,11 +1928,11 @@
       <div style="margin-top:28px; max-width:1040px;">
 
         <ul class="pts a4">
-          <li><span class="dot"></span><strong>Community need is documented</strong> — housing access, local services, and economic opportunity are persistent, well-known gaps on St. John</li>
-          <li><span class="dot"></span><strong>Scale is appropriate</strong> — this is not large-format commercial; it is neighborhood-serving mixed-use at a modest footprint</li>
-          <li><span class="dot"></span><strong>Public benefit is direct</strong> — park space, attainable ownership, and local jobs are built into the program, not afterthoughts</li>
-          <li><span class="dot"></span><strong>Design is context-sensitive</strong> — low-rise, screened, and compatible with the existing residential setting on all sides</li>
-          <li><span class="dot"></span><strong>Alternatives are worse</strong> — without this outlet, pressure concentrates where it causes the most environmental and social harm</li>
+          <li><span class="dot"></span><span class="claim"><strong>Community need is documented</strong> — housing access, local services, and economic opportunity are persistent, well-known gaps on St. John</span></li>
+          <li><span class="dot"></span><span class="claim"><strong>Scale is appropriate</strong> — this is not large-format commercial; it is neighborhood-serving mixed-use at a modest footprint</span></li>
+          <li><span class="dot"></span><span class="claim"><strong>Public benefit is direct</strong> — park space, attainable ownership, and local jobs are built into the program, not afterthoughts</span></li>
+          <li><span class="dot"></span><span class="claim"><strong>Design is context-sensitive</strong> — low-rise, screened, and compatible with the existing residential setting on all sides</span></li>
+          <li><span class="dot"></span><span class="claim"><strong>Alternatives are worse</strong> — without this outlet, pressure concentrates where it causes the most environmental and social harm</span></li>
         </ul>
 
       </div>
@@ -1860,7 +1965,7 @@
         <div class="card" style="text-align:left;">
           <div style="font-size:32px; color:var(--wood-light); font-family:Georgia; line-height:1; margin-bottom:10px;">03</div>
           <h3>Formal Application</h3>
-          <p>Upon approval in principle, we will submit full site plans, environmental review documents, and complete permitting applications.</p>
+          <p>Upon approval in principle, we will submit full site plans, and complete permitting requirements.</p>
         </div>
 
       </div>
@@ -1873,10 +1978,13 @@
 </div><!-- /deck -->
 
 <!-- ─── NAVIGATION ─── -->
+<div class="nav-peek" aria-hidden="true"></div>
 <div class="nav">
   <button class="nav-btn" id="btnPrev" type="button">&#8592;</button>
-  <span class="slide-counter" id="ctr">1 / 37</span>
+  <span class="slide-counter" id="ctr">1 / 40</span>
   <button class="nav-btn" id="btnNext" type="button">&#8594;</button>
+  <button class="nav-btn nav-text" id="btnTextMinus" type="button" aria-label="Decrease text size" title="Decrease text size">-</button>
+  <button class="nav-btn nav-text" id="btnTextPlus" type="button" aria-label="Increase text size" title="Increase text size">+</button>
   <button class="nav-btn nav-install" id="btnInstall" type="button" aria-label="Install app" title="Install app">Install</button>
   <button class="nav-btn nav-fs" id="btnFs" type="button" aria-label="Enter fullscreen" title="Enter fullscreen">⛶</button>
 </div>
@@ -1902,10 +2010,13 @@
   const slides = Array.from(document.querySelectorAll('.slide'));
   const N = slides.length;
   const prog = document.getElementById('prog');
+  const deck = document.getElementById('deck');
   const ctr  = document.getElementById('ctr');
   const dotsEl = document.getElementById('dots');
   const btnPrev = document.getElementById('btnPrev');
   const btnNext = document.getElementById('btnNext');
+  const btnTextMinus = document.getElementById('btnTextMinus');
+  const btnTextPlus = document.getElementById('btnTextPlus');
   const btnInstall = document.getElementById('btnInstall');
   const btnFs = document.getElementById('btnFs');
   const installSheet = document.getElementById('installSheet');
@@ -1918,9 +2029,15 @@
   const mapMarkers = Array.from(document.querySelectorAll('#smap .map-marker'));
   const illustrationImgs = Array.from(document.querySelectorAll('img[src*="Assets/Illustrations/"], img[src*="Assets/illustrations/"]'));
   const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  const textScaleKey = 'stjohn-text-scale';
+  const textScaleStep = 0.08;
+  const textScaleMin = 0.84;
+  const textScaleMax = 1.32;
+  const scalableTextEls = [];
   let cur = 0;
   let lastNavTs = 0;
   let deferredInstallPrompt = null;
+  let textScale = 1;
   ctr.textContent = `1 / ${N}`;
 
   const mapImg = new Image();
@@ -2003,6 +2120,76 @@
     });
   });
 
+  function hasDirectReadableText(el) {
+    return Array.from(el.childNodes).some(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+  }
+
+  function canScaleText(el) {
+    const tag = (el.tagName || '').toLowerCase();
+    if (!tag) return false;
+    if (['script', 'style', 'svg', 'path', 'rect', 'circle', 'ellipse', 'line', 'polyline', 'polygon', 'g', 'defs', 'img', 'video', 'canvas'].includes(tag)) return false;
+    if (el.closest('.nav') || el.closest('.dots') || el.closest('.install-sheet')) return false;
+    return hasDirectReadableText(el);
+  }
+
+  function clearScaledTextStyles() {
+    scalableTextEls.forEach(item => {
+      item.el.style.removeProperty('font-size');
+      item.el.style.removeProperty('line-height');
+      item.el.style.removeProperty('letter-spacing');
+    });
+  }
+
+  function captureTextMetrics() {
+    if (!deck) return;
+    const hadScaledStyles = Math.abs(textScale - 1) > 0.001;
+    if (hadScaledStyles) clearScaledTextStyles();
+    scalableTextEls.length = 0;
+    deck.querySelectorAll('*').forEach(el => {
+      if (!canScaleText(el)) return;
+      const styles = getComputedStyle(el);
+      const fontSize = parseFloat(styles.fontSize);
+      if (!Number.isFinite(fontSize)) return;
+      const lineHeight = parseFloat(styles.lineHeight);
+      const letterSpacing = parseFloat(styles.letterSpacing);
+      scalableTextEls.push({
+        el,
+        fontSize,
+        lineHeight: Number.isFinite(lineHeight) ? lineHeight : null,
+        letterSpacing: Number.isFinite(letterSpacing) ? letterSpacing : null
+      });
+    });
+    if (hadScaledStyles) applyTextScaleStyles();
+  }
+
+  function applyTextScaleStyles() {
+    scalableTextEls.forEach(item => {
+      if (Math.abs(textScale - 1) <= 0.001) {
+        item.el.style.removeProperty('font-size');
+        item.el.style.removeProperty('line-height');
+        item.el.style.removeProperty('letter-spacing');
+        return;
+      }
+      item.el.style.fontSize = `${item.fontSize * textScale}px`;
+      if (item.lineHeight !== null) item.el.style.lineHeight = `${item.lineHeight * textScale}px`;
+      if (item.letterSpacing !== null) item.el.style.letterSpacing = `${item.letterSpacing * textScale}px`;
+    });
+  }
+
+  function syncTextScaleButtons() {
+    if (btnTextMinus) btnTextMinus.disabled = textScale <= textScaleMin + 0.001;
+    if (btnTextPlus) btnTextPlus.disabled = textScale >= textScaleMax - 0.001;
+  }
+
+  function setTextScale(nextScale) {
+    textScale = Math.max(textScaleMin, Math.min(textScaleMax, Math.round(nextScale * 100) / 100));
+    applyTextScaleStyles();
+    syncTextScaleButtons();
+    try {
+      window.localStorage.setItem(textScaleKey, String(textScale));
+    } catch (_) {}
+  }
+
   function parsePosToken(token, fallback) {
     const t = (token || '').trim().toLowerCase();
     if (!t) return fallback;
@@ -2061,6 +2248,10 @@
   mapImg.addEventListener('load', () => requestAnimationFrame(layoutMapMarkers));
   window.addEventListener('resize', () => requestAnimationFrame(layoutMapMarkers));
   window.addEventListener('orientationchange', () => requestAnimationFrame(layoutMapMarkers));
+  window.addEventListener('resize', () => {
+    captureTextMetrics();
+    applyTextScaleStyles();
+  });
   document.addEventListener('fullscreenchange', syncFullscreenButton);
   document.addEventListener('webkitfullscreenchange', syncFullscreenButton);
   window.addEventListener('beforeinstallprompt', e => {
@@ -2125,6 +2316,8 @@
 
   bindActivate(btnPrev, () => go(-1));
   bindActivate(btnNext, () => go(1));
+  if (btnTextMinus) bindActivate(btnTextMinus, () => setTextScale(textScale - textScaleStep));
+  if (btnTextPlus) bindActivate(btnTextPlus, () => setTextScale(textScale + textScaleStep));
   if (installClose) bindActivate(installClose, () => closeInstallSheet());
   if (installSheet) {
     installSheet.addEventListener('click', e => {
@@ -2153,19 +2346,15 @@
     }
   }
   if (btnFs) {
-    if (isStandalone) {
-      btnFs.style.display = 'none';
-    } else {
-      bindActivate(btnFs, () => {
-        if (!fullscreenSupported()) {
-          openInstallSheet(isIosDevice() ? 'ios' : 'other');
-          return;
-        }
-        if (fullscreenElement()) exitFullscreenMode();
-        else requestFullscreenMode();
-      });
-      syncFullscreenButton();
-    }
+    bindActivate(btnFs, () => {
+      if (!fullscreenSupported()) {
+        openInstallSheet(isIosDevice() ? 'ios' : 'other');
+        return;
+      }
+      if (fullscreenElement()) exitFullscreenMode();
+      else requestFullscreenMode();
+    });
+    syncFullscreenButton();
   }
 
   // Keyboard
@@ -2183,6 +2372,12 @@
   });
 
   // Init progress
+  captureTextMetrics();
+  try {
+    const savedScale = parseFloat(window.localStorage.getItem(textScaleKey) || '1');
+    if (Number.isFinite(savedScale)) textScale = savedScale;
+  } catch (_) {}
+  setTextScale(textScale);
   prog.style.setProperty('--p', (1 / N).toString());
   requestAnimationFrame(layoutMapMarkers);
 </script>

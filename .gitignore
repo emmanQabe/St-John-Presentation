@@ -1,3 +1,4 @@
 .codex/
 .playwright-cli/
 index-standalone.html
+output/pdf/

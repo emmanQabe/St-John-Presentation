@@ -6,7 +6,7 @@ $src = Join-Path $root 'index.html'
 $out = Join-Path $root 'index-standalone.html'
 
 $html = [IO.File]::ReadAllText($src)
-$assetPattern = 'Assets/[^"'']+?(?=["''])'
+$assetPattern = '(?<=\")(Assets/[^\"\r\n]+)(?=\")|(?<=\x27)(Assets/[^\x27\r\n]+)(?=\x27)'
 $transparent = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aF9sAAAAASUVORK5CYII='
 $missingAssets = New-Object System.Collections.Generic.List[string]
 $missingFonts = New-Object System.Collections.Generic.List[string]
