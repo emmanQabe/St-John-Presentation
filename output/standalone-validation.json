@@ -1,0 +1,336 @@
+{
+  "source": "C:\\Users\\Emman\\Documents\\CODE\\St-John-Presentation\\index.html",
+  "standalone": "C:\\Users\\Emman\\Documents\\CODE\\St-John-Presentation\\index-standalone.html",
+  "standalone_bytes": 143235759,
+  "slide_count": 40,
+  "slides_passed": 40,
+  "layout_css_match": true,
+  "scripts_match": true,
+  "asset_count": 45,
+  "assets_verified": 45,
+  "font_data_count": 47,
+  "active_asset_refs": [],
+  "remote_resource_refs": [],
+  "slides": [
+    {
+      "page": 1,
+      "id": "adrian-history",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 2,
+      "id": "adrian-geste",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 4,
+      "images": 0
+    },
+    {
+      "page": 3,
+      "id": "s0",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 60,
+      "images": 0
+    },
+    {
+      "page": 4,
+      "id": "toc",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 34,
+      "images": 0
+    },
+    {
+      "page": 5,
+      "id": "cover-s1",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 7,
+      "images": 0
+    },
+    {
+      "page": 6,
+      "id": "s1",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 19,
+      "images": 1
+    },
+    {
+      "page": 7,
+      "id": "cover-s2",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 7,
+      "images": 0
+    },
+    {
+      "page": 8,
+      "id": "s2",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 19,
+      "images": 3
+    },
+    {
+      "page": 9,
+      "id": "cover-s3",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 4,
+      "images": 0
+    },
+    {
+      "page": 10,
+      "id": "smap",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 14,
+      "images": 0
+    },
+    {
+      "page": 11,
+      "id": "s3",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 23,
+      "images": 1
+    },
+    {
+      "page": 12,
+      "id": "site-plan",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 13,
+      "id": "site-dev",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 14,
+      "id": "cover-renders",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 4,
+      "images": 0
+    },
+    {
+      "page": 15,
+      "id": "render-01",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 16,
+      "id": "render-02",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 17,
+      "id": "render-03",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 18,
+      "id": "render-04",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 19,
+      "id": "render-05",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 20,
+      "id": "render-06",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 21,
+      "id": "render-09",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 22,
+      "id": "render-12",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 23,
+      "id": "render-13",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 24,
+      "id": "render-13",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 25,
+      "id": "render-13",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 26,
+      "id": "render-13",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 27,
+      "id": "render-13",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 28,
+      "id": "benefits",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 39,
+      "images": 0
+    },
+    {
+      "page": 29,
+      "id": "s4",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 21,
+      "images": 1
+    },
+    {
+      "page": 30,
+      "id": "s5",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 19,
+      "images": 1
+    },
+    {
+      "page": 31,
+      "id": "s6",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 21,
+      "images": 1
+    },
+    {
+      "page": 32,
+      "id": "s7",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 23,
+      "images": 1
+    },
+    {
+      "page": 33,
+      "id": "s8",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 21,
+      "images": 3
+    },
+    {
+      "page": 34,
+      "id": "s9",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 21,
+      "images": 1
+    },
+    {
+      "page": 35,
+      "id": "s10",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 21,
+      "images": 3
+    },
+    {
+      "page": 36,
+      "id": "s11",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 21,
+      "images": 1
+    },
+    {
+      "page": 37,
+      "id": "s12",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 23,
+      "images": 1
+    },
+    {
+      "page": 38,
+      "id": "s12b",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 19,
+      "images": 1
+    },
+    {
+      "page": 39,
+      "id": "s13",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 29,
+      "images": 0
+    },
+    {
+      "page": 40,
+      "id": "s14",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 11,
+      "images": 1
+    }
+  ]
+}

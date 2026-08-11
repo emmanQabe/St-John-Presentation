@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Community-Serving Mixed-Use Development - St. John, USVI</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
@@ -102,7 +102,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 42px 32px;
+      padding: 42px 56px;
       overflow: hidden;
       opacity: 0;
       pointer-events: none;
@@ -132,6 +132,97 @@
       opacity: 0.1;
       background: radial-gradient(circle at 30% 35%, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.2) 42%, rgba(255,255,255,0) 75%);
       transform: rotate(-10deg);
+    }
+    #s14.adrian-geste-closing {
+      padding: 0;
+      align-items: stretch;
+      justify-content: flex-start;
+      background: url("Assets/map bg.png") center / cover no-repeat;
+    }
+    #s14.adrian-geste-closing::before {
+      opacity: 0;
+    }
+    #s14.adrian-geste-closing::after {
+      display: none;
+    }
+    .adrian-geste-panel {
+      position: relative;
+      z-index: 1;
+      flex: 0 1 auto;
+      width: fit-content;
+      max-width: 80%;
+      height: 100%;
+      padding: clamp(22px, 2.4vw, 40px) clamp(28px, 3.8vw, 64px);
+      padding-right: clamp(64px, 8vw, 120px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      color: #30291d;
+      background: linear-gradient(90deg, rgba(247, 237, 210, 0.98) 0%, rgba(247, 237, 210, 0.94) 60%, rgba(247, 237, 210, 0.82) 78%, rgba(247, 237, 210, 0.45) 91%, rgba(247, 237, 210, 0) 100%);
+    }
+    .adrian-geste-heading-wrap {
+      position: relative;
+      z-index: 2;
+      flex: 1 1 0;
+      min-width: 0;
+      align-self: flex-start;
+      margin: clamp(28px, 4vw, 68px) clamp(24px, 4vw, 72px) 0;
+      display: flex;
+      justify-content: center;
+    }
+    .adrian-geste-heading {
+      width: fit-content;
+      margin: 0;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(35px, 4.2vw, 64px);
+      font-weight: 600;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      text-align: center;
+      padding: clamp(12px, 1.2vw, 20px) clamp(34px, 4vw, 68px) clamp(15px, 1.4vw, 23px);
+      color: #3d4c2c;
+      background:
+        linear-gradient(90deg, rgba(119, 82, 39, 0.18), rgba(255, 244, 204, 0.2) 18%, rgba(255, 244, 204, 0.1) 82%, rgba(119, 82, 39, 0.18)),
+        linear-gradient(180deg, #dbc28a 0%, #f1dfad 45%, #d0ad6e 100%);
+      border: 1px solid rgba(91, 63, 31, 0.82);
+      box-shadow: 0 8px 18px rgba(35, 29, 17, 0.38), inset 0 1px 0 rgba(255, 249, 220, 0.75), inset 0 -2px 0 rgba(99, 69, 34, 0.18);
+      text-shadow: 0 1px 0 rgba(255, 248, 218, 0.82);
+      clip-path: polygon(3% 0, 97% 0, 100% 50%, 97% 100%, 3% 100%, 0 50%);
+      pointer-events: none;
+    }
+    .adrian-geste-portrait {
+      display: block;
+      width: clamp(132px, 13.3vw, 210px);
+      aspect-ratio: 0.78;
+      object-fit: cover;
+      object-position: center top;
+      margin: 0 auto clamp(18px, 2vw, 32px);
+      border: 5px solid rgba(255, 250, 235, 0.9);
+      box-shadow: 0 10px 24px rgba(44, 35, 20, 0.25);
+      filter: sepia(0.13) contrast(1.03);
+    }
+    .adrian-geste-copy,
+    #s14 .adrian-geste-copy p {
+      width: 100%;
+      max-width: 600px;
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-size: clamp(18px, 1.55vw, 26px);
+      font-weight: 500;
+      line-height: 1.12;
+      color: #342d22;
+    }
+    .adrian-geste-copy .legacy,
+    #s14 .adrian-geste-copy p.legacy {
+      display: block;
+      margin-top: clamp(18px, 1.7vw, 28px);
+      padding-top: clamp(12px, 1vw, 18px);
+      border-top: 1px solid rgba(70, 85, 53, 0.48);
+      font-size: 1.1em;
+      font-weight: 600;
+      font-style: italic;
+      line-height: 1.15;
+      color: #526b34;
     }
     #s0.hero-photo {
       background: var(--lux-cream);
@@ -706,7 +797,9 @@
     }
     #benefits .cover-media {
       min-height: 590px;
-      margin: 14px 0;
+      align-self: stretch;
+      height: auto;
+      margin: 0;
       background-position: center;
     }
     .doodle path,
@@ -1190,6 +1283,401 @@
         transform: translate(-50%, 0);
       }
     }
+
+    /*  PRESENTER VERSION: keep the visual prompts, leave detail to the speaker.  */
+    @media screen {
+      .slide .pts {
+        display: none !important;
+      }
+      #s3 .project-overview-prompts p {
+        display: none !important;
+      }
+      .card:has(> img.icon48) > p {
+        display: none !important;
+      }
+      .card:has(> img.icon48) {
+        min-height: 190px;
+        display: flex !important;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 30px 28px;
+      }
+      .card:has(> img.icon48) > img.icon48 {
+        width: 88px;
+        height: 88px;
+      }
+      #s2 .card:has(> img.icon48) > img.icon48,
+      #s8 .card:has(> img.icon48) > img.icon48,
+      #s10 .card:has(> img.icon48) > img.icon48 {
+        width: 176px;
+        height: 176px;
+        margin: 0 auto;
+      }
+      .card:has(> img.icon48) > h3 {
+        margin: 18px 0 0 !important;
+        font-size: clamp(20px, 2vw, 28px);
+        line-height: 1.05;
+      }
+      .slide:has(.pts) .inner {
+        transform: translateY(4%);
+      }
+      .slide:has(.pts) h2 {
+        font-size: clamp(32px, 4vw, 54px);
+      }
+      .slide:has(.pts) .lead {
+        max-width: 760px;
+        margin-bottom: 0;
+        font-size: clamp(17px, 1.7vw, 22px);
+        line-height: 1.55;
+      }
+      .slide:has(.pts) .doodle {
+        max-width: 480px;
+      }
+    }
+
+    /*  PRINT VERSION: one complete 16:9 slide per Letter-landscape page.  */
+    @page {
+      size: Letter landscape;
+      margin: 0;
+    }
+    @media print {
+      html,
+      body {
+        width: auto !important;
+        height: auto !important;
+        overflow: visible !important;
+        display: block !important;
+        background: #fff !important;
+      }
+      .progress-bar,
+      .nav-peek,
+      .nav,
+      .dots,
+      .install-sheet {
+        display: none !important;
+      }
+      .deck {
+        width: 11in !important;
+        height: auto !important;
+        max-height: none !important;
+        aspect-ratio: auto !important;
+        margin: 0 auto !important;
+        overflow: visible !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+      }
+      .slide {
+        position: relative !important;
+        inset: auto !important;
+        width: 11in !important;
+        height: 8.5in !important;
+        margin: 0 !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        break-after: page;
+        page-break-after: always;
+        overflow: hidden !important;
+        border-radius: 0 !important;
+        animation: none !important;
+        transition: none !important;
+      }
+      .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .slide:not(.render-slide) {
+        padding: 42px 56px !important;
+        align-items: center !important;
+      }
+      .render-slide,
+      .render-slide img,
+      #site-dev img {
+        width: 11in !important;
+        height: 8.5in !important;
+      }
+      .render-slide {
+        padding: 0 !important;
+        align-items: stretch !important;
+        justify-content: stretch !important;
+      }
+      .render-slide img,
+      #site-dev img {
+        object-fit: cover !important;
+        object-position: center !important;
+      }
+      #adrian-history {
+        background: #e2c694 !important;
+      }
+      #adrian-history img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        margin: auto 0 !important;
+        align-self: center !important;
+        object-fit: fill !important;
+      }
+      #site-dev {
+        background: linear-gradient(145deg, #caf3a7 0%, #cef0a6 100%) !important;
+      }
+      #site-dev img {
+        object-fit: contain !important;
+      }
+      #smap,
+      #s3 {
+        padding: 0 !important;
+      }
+      #s3 {
+        padding: 38px 40px !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr) !important;
+        gap: 30px !important;
+        align-items: stretch !important;
+        justify-content: stretch !important;
+      }
+      #s3 .inner {
+        width: 100% !important;
+        height: 100% !important;
+        padding: 22px 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+      }
+      #s3 .two-col {
+        display: block !important;
+      }
+      #s3 .edge-image {
+        position: relative !important;
+        inset: auto !important;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        border-radius: 20px !important;
+        overflow: hidden !important;
+      }
+      #s14.adrian-geste-closing {
+        padding: 0 !important;
+        align-items: stretch !important;
+        background: url("Assets/map bg.png") center / cover no-repeat !important;
+      }
+      #s14 .adrian-geste-panel {
+        flex: 0 0 44% !important;
+        width: 44% !important;
+        max-width: 44% !important;
+        padding: 28px 54px 28px 40px !important;
+        background: linear-gradient(90deg, #f7edd2 0%, #f4e7c6 72%, #ead5a7 100%) !important;
+        clip-path: polygon(0 0, 96% 0, 100% 50%, 96% 100%, 0 100%) !important;
+      }
+      #s14 .adrian-geste-portrait {
+        display: block !important;
+        width: 170px !important;
+        margin: 0 auto 16px !important;
+      }
+      #s14 .adrian-geste-copy,
+      #s14 .adrian-geste-copy p {
+        max-width: 100% !important;
+        font-size: 22px !important;
+        line-height: 1.13 !important;
+      }
+      #smap {
+        align-items: stretch !important;
+        --map-bg-x: 50%;
+        --map-bg-y: 50%;
+        background: #eadfbe !important;
+      }
+      #smap-canvas {
+        background-size: contain !important;
+        background-color: #eadfbe !important;
+      }
+      .two-col {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 28px !important;
+        align-items: center !important;
+      }
+      #s4 .inner {
+        margin-top: 0 !important;
+      }
+      #s4 .two-col {
+        gap: 48px !important;
+        margin-top: 0 !important;
+        align-items: center !important;
+      }
+      #s4 .col-r {
+        padding-bottom: 0 !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+      #s0.hero-photo {
+        align-items: flex-start !important;
+      }
+      #s0.hero-photo::after {
+        transform: translateY(20%) !important;
+      }
+      #s0.hero-photo .inner {
+        max-width: 1120px !important;
+        margin-top: 8px !important;
+      }
+      #s0.hero-photo .two-col {
+        grid-template-columns: 1fr !important;
+      }
+      #s0.hero-photo .col-l {
+        position: relative !important;
+        min-height: 360px !important;
+        display: block !important;
+      }
+      #s0.hero-photo .eyebrow {
+        position: absolute !important;
+        top: 8px !important;
+        left: 6px !important;
+        margin: 0 !important;
+        text-align: left !important;
+      }
+      #s0.hero-photo .rule {
+        position: absolute !important;
+        top: 36px !important;
+        left: 6px !important;
+        margin: 0 !important;
+      }
+      #s0.hero-photo h1 {
+        font-size: clamp(34px, 4.2vw, 58px) !important;
+        line-height: 0.92 !important;
+        margin: 118px auto 0 !important;
+        max-width: 700px !important;
+        text-align: center !important;
+      }
+      #s0.hero-photo .a4 {
+        position: absolute !important;
+        top: 8px !important;
+        right: 8px !important;
+        max-width: 360px !important;
+        margin: 0 !important;
+        text-align: right !important;
+      }
+      #s0.hero-photo .a5 {
+        position: absolute !important;
+        top: 8px !important;
+        right: 8px !important;
+        left: auto !important;
+        transform: scale(0.82) !important;
+        transform-origin: top right !important;
+        margin: 0 !important;
+        justify-content: flex-end !important;
+      }
+      .three-col {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 28px !important;
+      }
+      #toc .cover-layout {
+        grid-template-columns: 1.1fr 0.9fr !important;
+        gap: 36px !important;
+        align-items: center !important;
+      }
+      #toc .cover-media {
+        display: block !important;
+        min-height: 430px !important;
+      }
+      #toc .toc-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 14px 22px !important;
+        margin-top: 18px !important;
+      }
+      #toc .toc-item {
+        padding: 12px 16px !important;
+        border-radius: 18px !important;
+      }
+      #benefits .inner {
+        height: 100% !important;
+        max-width: none !important;
+      }
+      #benefits .cover-layout {
+        display: grid !important;
+        height: 100% !important;
+        grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr) !important;
+        gap: 30px !important;
+        align-items: stretch !important;
+      }
+      #benefits .cover-layout > div:first-child {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+        padding-top: 0 !important;
+        align-self: center !important;
+      }
+      #benefits .lead {
+        font-size: 13px !important;
+        line-height: 1.35 !important;
+        margin-bottom: 8px !important;
+      }
+      #benefits .a4 {
+        gap: 5px 8px !important;
+        margin-top: 7px !important;
+      }
+      #benefits .a4 > div {
+        min-height: 42px !important;
+        padding: 4px 8px !important;
+      }
+      #benefits .cover-media {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+        display: block !important;
+        min-height: 0 !important;
+        height: 100% !important;
+        margin: 0 !important;
+        border-radius: 22px !important;
+        background-position: var(--cover-pos, center) !important;
+      }
+      .card:has(> img.icon48) {
+        display: block !important;
+        min-height: 0 !important;
+        padding: 28px 26px !important;
+      }
+      .card:has(> img.icon48) > img.icon48 {
+        display: block !important;
+        width: 72px !important;
+        height: 72px !important;
+      }
+      #s2 .card:has(> img.icon48) > img.icon48,
+      #s8 .card:has(> img.icon48) > img.icon48,
+      #s10 .card:has(> img.icon48) > img.icon48 {
+        width: 144px !important;
+        height: 144px !important;
+        margin: 0 auto !important;
+      }
+      .card:has(> img.icon48) > h3 {
+        margin: 14px 0 10px !important;
+        max-width: none !important;
+      }
+      .doodle {
+        max-width: 400px !important;
+      }
+      .slide *,
+      .slide *::before,
+      .slide *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .slide .a1,
+      .slide .a2,
+      .slide .a3,
+      .slide .a4,
+      .slide .a5,
+      .slide .a6,
+      .slide .col-l,
+      .slide .col-r,
+      .slide .card-1,
+      .slide .card-2,
+      .slide .card-3 {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .slide .pts {
+        display: flex !important;
+      }
+      .card:has(> img.icon48) > p {
+        display: block !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1465,7 +1953,7 @@
           <div class="rule a2"></div>
           <h2 class="a3">Project Overview</h2>
           <p class="lead a4">A thoughtfully planned mixed-use community on several contiguous parcels — sized for the neighborhood, not for profit maximization.</p>
-          <div class="a5" style="display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:8px;">
+          <div class="a5 project-overview-prompts" style="display:grid; grid-template-columns:1fr 1fr; column-gap:22px; row-gap:36px; margin-top:28px;">
             <div>
               <div style="font-size:clamp(20px,2.2vw,30px); color:var(--ocean-deep); font-family:Georgia; line-height:1;">Apartments</div>
               <p style="font-size:13px; margin-top:6px; color:var(--text-light);">Residential units for purchase and long-term lease by locals</p>
@@ -1631,12 +2119,12 @@
    -->
   <div class="slide bg-ocean" id="s4">
     <div class="inner">
-      <div class="eyebrow a1">Growth Strategy</div>
-      <div class="rule a2"></div>
-      <h2 class="a3">01 - A More Balanced<br><span class="em">Growth Pattern</span></h2>
-      <div class="two-col" style="margin-top:28px; gap:48px;">
+      <div class="two-col" style="gap:48px;">
 
         <div class="col-l">
+          <div class="eyebrow a1">Growth Strategy</div>
+          <div class="rule a2"></div>
+          <h2 class="a3">01 - A More Balanced<br><span class="em">Growth Pattern</span></h2>
           <p class="lead a4">Rather than intensifying already-stressed nodes, this proposal distributes growth thoughtfully - building community where people already live, reducing pressure where it's most acute.</p>
           <ul class="pts a5">
             <li><span class="dot"></span>Reduces strain on Cruz Bay's over-burdened infrastructure</li>
@@ -1906,7 +2394,7 @@
           <ul class="pts a5">
             <li><span class="dot"></span>Centerline Road already operates at a high level of service and has the capacity to absorb the expected traffic generated by the project.</li>
             <li><span class="dot"></span>Ingress and egress are intentionally placed on a secondary road, avoiding direct access conflicts along Centerline Road.</li>
-            <li><span class="dot"></span>By bringing basic goods and services closer to nearby households, the project can reduce average daily trips into Cruz Bay for everyday needs.</li>
+            <li><span class="dot"></span>By bringing basic goods and services closer to nearby households, the project can reduce average daily traffic into Cruz Bay for everyday needs.</li>
           </ul>
         </div>
 
@@ -1941,38 +2429,18 @@
   </div>
 
   <!-- ══════════════════════════════════════════
-       SLIDE 38 · REQUEST AND NEXT STEPS
+       SLIDE 38 · ADRIAN'S GESTE
   ══════════════════════════════════════════ -->
-  <div class="slide bg-ocean" id="s14">
-    <div class="inner" style="text-align:center; max-width:960px; margin:0 auto;">
-      <div class="eyebrow a1" style="text-align:center;">Our Ask</div>
-      <div class="rule a2" style="margin:0 auto 22px;"></div>
-      <h2 class="a3" style="font-size:clamp(26px,4vw,52px);">Request and <span class="em">Next Steps</span></h2>
-      <p class="a4" style="text-align:center; margin:20px auto 36px; max-width:620px; font-size:clamp(14px,1.5vw,18px);">We respectfully request that DPNR approve rezoning for these parcels to permit mixed residential and commercial use — in recognition of the genuine, lasting community benefit this development delivers.</p>
-      <div class="three-col a5">
-
-        <div class="card" style="text-align:left;">
-          <div style="font-size:32px; color:var(--ocean); font-family:Georgia; line-height:1; margin-bottom:10px;">01</div>
-          <h3>Rezoning Approval</h3>
-          <p>Mixed-use designation for the subject parcels, permitting residential apartments, neighborhood commercial, and public park.</p>
-        </div>
-
-        <div class="card" style="text-align:left;">
-          <div style="font-size:32px; color:var(--grass); font-family:Georgia; line-height:1; margin-bottom:10px;">02</div>
-          <h3>Community Review</h3>
-          <p>We welcome a public comment period and are committed to meaningful community engagement throughout the design and permitting process.</p>
-        </div>
-
-        <div class="card" style="text-align:left;">
-          <div style="font-size:32px; color:var(--wood-light); font-family:Georgia; line-height:1; margin-bottom:10px;">03</div>
-          <h3>Formal Application</h3>
-          <p>Upon approval in principle, we will submit full site plans, and complete permitting requirements.</p>
-        </div>
-
+  <div class="slide adrian-geste-closing" id="s14">
+    <div class="adrian-geste-panel">
+      <img class="adrian-geste-portrait a2" src="Assets/G sprauve.jpg" alt="Portrait of Dr. Gerhardt Sprauve">
+      <div class="adrian-geste-copy a3">
+        <p>“... Bernado Bauman and Rose Bauman, his wife ... do bargain sell, transfer and convey unto Mr. Gerhardt Sprauve, his heirs, and assigns all of our right, title, and interest in and to the following described real property, located in the island of Saint John, Virgin Islands of the United States, to wit:<br><br>ESTATE ADRIAN, No. 18 Cruz Bay Quarter,<br>According to the Recorder’s Record containing 225 acres of land, more or less;”</p>
+        <p class="legacy">Today, Dr. Sprauve’s family continues to steward the remaining lands south of Centerline Road.</p>
       </div>
-      <p class="a6" style="margin-top:32px; font-style:italic; color:var(--ocean-deep); font-size:clamp(14px,1.4vw,18px);">
-        Thank you for your consideration.<br>We believe in St. John's community — and this proposal is built on that belief.
-      </p>
+    </div>
+    <div class="adrian-geste-heading-wrap">
+      <h2 class="adrian-geste-heading a1">Adrian's Geste</h2>
     </div>
   </div>
 
@@ -2219,7 +2687,10 @@
     if (!cw || !ch) return;
     const iw = mapImg.naturalWidth;
     const ih = mapImg.naturalHeight;
-    const scale = Math.max(cw / iw, ch / ih);
+    const backgroundSize = getComputedStyle(mapCanvas).backgroundSize.trim().toLowerCase();
+    const scale = backgroundSize === 'contain'
+      ? Math.min(cw / iw, ch / ih)
+      : Math.max(cw / iw, ch / ih);
     const rw = iw * scale;
     const rh = ih * scale;
     const markerData = mapMarkers.map(m => ({
