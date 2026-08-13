@@ -1,9 +1,9 @@
 {
   "source": "C:\\Users\\Emman\\Documents\\CODE\\St-John-Presentation\\index.html",
   "standalone": "C:\\Users\\Emman\\Documents\\CODE\\St-John-Presentation\\index-standalone.html",
-  "standalone_bytes": 143235759,
-  "slide_count": 40,
-  "slides_passed": 40,
+  "standalone_bytes": 147444095,
+  "slide_count": 41,
+  "slides_passed": 41,
   "layout_css_match": true,
   "scripts_match": true,
   "asset_count": 45,
@@ -11,6 +11,7 @@
   "font_data_count": 47,
   "active_asset_refs": [],
   "remote_resource_refs": [],
+  "pdf_pages": 41,
   "slides": [
     {
       "page": 1,
@@ -94,6 +95,14 @@
     },
     {
       "page": 11,
+      "id": "map-fullscreen",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 12,
       "id": "s3",
       "id_match": true,
       "structure_match": true,
@@ -101,7 +110,7 @@
       "images": 1
     },
     {
-      "page": 12,
+      "page": 13,
       "id": "site-plan",
       "id_match": true,
       "structure_match": true,
@@ -109,7 +118,7 @@
       "images": 1
     },
     {
-      "page": 13,
+      "page": 14,
       "id": "site-dev",
       "id_match": true,
       "structure_match": true,
@@ -117,7 +126,7 @@
       "images": 1
     },
     {
-      "page": 14,
+      "page": 15,
       "id": "cover-renders",
       "id_match": true,
       "structure_match": true,
@@ -125,7 +134,7 @@
       "images": 0
     },
     {
-      "page": 15,
+      "page": 16,
       "id": "render-01",
       "id_match": true,
       "structure_match": true,
@@ -133,7 +142,7 @@
       "images": 1
     },
     {
-      "page": 16,
+      "page": 17,
       "id": "render-02",
       "id_match": true,
       "structure_match": true,
@@ -141,7 +150,7 @@
       "images": 1
     },
     {
-      "page": 17,
+      "page": 18,
       "id": "render-03",
       "id_match": true,
       "structure_match": true,
@@ -149,7 +158,7 @@
       "images": 1
     },
     {
-      "page": 18,
+      "page": 19,
       "id": "render-04",
       "id_match": true,
       "structure_match": true,
@@ -157,7 +166,7 @@
       "images": 1
     },
     {
-      "page": 19,
+      "page": 20,
       "id": "render-05",
       "id_match": true,
       "structure_match": true,
@@ -165,7 +174,7 @@
       "images": 1
     },
     {
-      "page": 20,
+      "page": 21,
       "id": "render-06",
       "id_match": true,
       "structure_match": true,
@@ -173,7 +182,7 @@
       "images": 1
     },
     {
-      "page": 21,
+      "page": 22,
       "id": "render-09",
       "id_match": true,
       "structure_match": true,
@@ -181,16 +190,8 @@
       "images": 1
     },
     {
-      "page": 22,
-      "id": "render-12",
-      "id_match": true,
-      "structure_match": true,
-      "elements": 2,
-      "images": 1
-    },
-    {
       "page": 23,
-      "id": "render-13",
+      "id": "render-12",
       "id_match": true,
       "structure_match": true,
       "elements": 2,
@@ -230,6 +231,14 @@
     },
     {
       "page": 28,
+      "id": "render-13",
+      "id_match": true,
+      "structure_match": true,
+      "elements": 2,
+      "images": 1
+    },
+    {
+      "page": 29,
       "id": "benefits",
       "id_match": true,
       "structure_match": true,
@@ -237,7 +246,7 @@
       "images": 0
     },
     {
-      "page": 29,
+      "page": 30,
       "id": "s4",
       "id_match": true,
       "structure_match": true,
@@ -245,7 +254,7 @@
       "images": 1
     },
     {
-      "page": 30,
+      "page": 31,
       "id": "s5",
       "id_match": true,
       "structure_match": true,
@@ -253,7 +262,7 @@
       "images": 1
     },
     {
-      "page": 31,
+      "page": 32,
       "id": "s6",
       "id_match": true,
       "structure_match": true,
@@ -261,7 +270,7 @@
       "images": 1
     },
     {
-      "page": 32,
+      "page": 33,
       "id": "s7",
       "id_match": true,
       "structure_match": true,
@@ -269,7 +278,7 @@
       "images": 1
     },
     {
-      "page": 33,
+      "page": 34,
       "id": "s8",
       "id_match": true,
       "structure_match": true,
@@ -277,7 +286,7 @@
       "images": 3
     },
     {
-      "page": 34,
+      "page": 35,
       "id": "s9",
       "id_match": true,
       "structure_match": true,
@@ -285,7 +294,7 @@
       "images": 1
     },
     {
-      "page": 35,
+      "page": 36,
       "id": "s10",
       "id_match": true,
       "structure_match": true,
@@ -293,7 +302,7 @@
       "images": 3
     },
     {
-      "page": 36,
+      "page": 37,
       "id": "s11",
       "id_match": true,
       "structure_match": true,
@@ -301,7 +310,7 @@
       "images": 1
     },
     {
-      "page": 37,
+      "page": 38,
       "id": "s12",
       "id_match": true,
       "structure_match": true,
@@ -309,7 +318,7 @@
       "images": 1
     },
     {
-      "page": 38,
+      "page": 39,
       "id": "s12b",
       "id_match": true,
       "structure_match": true,
@@ -317,7 +326,7 @@
       "images": 1
     },
     {
-      "page": 39,
+      "page": 40,
       "id": "s13",
       "id_match": true,
       "structure_match": true,
@@ -325,7 +334,7 @@
       "images": 0
     },
     {
-      "page": 40,
+      "page": 41,
       "id": "s14",
       "id_match": true,
       "structure_match": true,
